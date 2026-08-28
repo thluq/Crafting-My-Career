@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Crafting My Career - Um jogo RPG de carreira onde suas escolhas definem seu futuro profissional!">
+  <title>Crafting My Career — RPG de Carreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- SCANLINE OVERLAY -->
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- ==================== TELA INICIAL ==================== -->
+    <div id="screen-title" class="screen active">
+      <div class="title-container">
+        <div class="title-stars" aria-hidden="true"></div>
+        <h1 class="title-logo">
+          <span class="title-pixel">Crafting My</span>
+          <span class="title-dreams">CAREER</span>
+        </h1>
+        <p class="title-subtitle">RPG de Carreira</p>
+        <p class="title-tagline">Suas escolhas. Seu futuro.</p>
+        <button id="btn-start" class="pixel-btn pixel-btn-primary pulse" onclick="Game.startCharacterCreation()">
+          ▶ INICIAR JOGO
+        </button>
+        <p class="title-credits">Escrito por Ana B. Desenvolvido por Thiago</p>
+      </div>
+    </div>
+
+    <!-- ==================== CRIAÇÃO DE PERSONAGEM ==================== -->
+    <div id="screen-character" class="screen">
+      <div class="char-container">
+        <h2 class="section-title">👤 CRIAR PERSONAGEM</h2>
+
+        <!-- Nome -->
+        <div class="char-section">
+          <label class="char-label" for="input-name">Seu Nome:</label>
+          <input type="text" id="input-name" class="pixel-input" placeholder="Digite seu nome..." maxlength="15">
+        </div>
+
+        <!-- Escolha do Avatar -->
+        <div class="char-section">
+          <p class="char-label">Escolha seu Avatar:</p>
+          <div class="avatar-row" id="avatar-row">
+            <!-- Avatars rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Atributos -->
+        <div class="char-section">
+          <p class="char-label">Distribua <span id="points-left" class="highlight">10</span> Pontos:</p>
+          <div class="attributes-grid" id="attributes-grid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Carreira -->
+        <div class="char-section">
+          <p class="char-label">Escolha sua Carreira:</p>
+          <div class="careers-row" id="careers-row">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Traço de Personalidade -->
+        <div class="char-section">
+          <p class="char-label">Traço de Personalidade:</p>
+          <div class="traits-row" id="traits-row">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Botão Confirmar -->
+        <button id="btn-confirm-char" class="pixel-btn pixel-btn-primary" onclick="Game.confirmCharacter()" disabled>
+          ✔ CONFIRMAR
+        </button>
+      </div>
+    </div>
+
+    <!-- ==================== TRANSIÇÃO DE FASE ==================== -->
+    <div id="screen-transition" class="screen">
+      <div class="transition-container">
+        <div class="transition-icon" id="transition-icon">📋</div>
+        <h2 class="transition-phase" id="transition-phase">FASE 1</h2>
+        <h3 class="transition-name" id="transition-name">PLANEJAMENTO</h3>
+        <p class="transition-subtitle" id="transition-subtitle">Traçando o Caminho</p>
+        <div class="transition-bar"><div class="transition-bar-fill" id="transition-bar-fill"></div></div>
+        <p class="transition-intro" id="transition-intro"></p>
+      </div>
+    </div>
+
+    <!-- ==================== TELA DE JOGO ==================== -->
+    <div id="screen-game" class="screen">
+      <!-- Sidebar de Stats -->
+      <aside id="stat-sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-avatar-icon" id="sidebar-avatar-icon">👤</span>
+          <span class="sidebar-name" id="sidebar-name">Jogador</span>
+        </div>
+        <div class="sidebar-trait" id="sidebar-trait"></div>
+        <div class="stat-bars" id="stat-bars">
+          <!-- Rendered by JS -->
+        </div>
+        <div class="sidebar-phase">
+          <span class="sidebar-phase-label" id="sidebar-phase-label">Fase 1/5</span>
+          <div class="sidebar-phase-bar"><div class="sidebar-phase-fill" id="sidebar-phase-fill"></div></div>
+        </div>
+      </aside>
+
+      <!-- Área Principal do Cenário -->
+      <main id="scene-area">
+        <div class="scene-phase-indicator" id="scene-phase-indicator">
+          <span class="phase-badge" id="phase-badge">📋 PLANEJAMENTO</span>
+          <span class="scenario-counter" id="scenario-counter">1/3</span>
+        </div>
+
+        <!-- Caixa de Cenário/Diálogo -->
+        <div class="dialogue-box" id="dialogue-box">
+          <p class="dialogue-text" id="dialogue-text"></p>
+        </div>
+
+        <!-- Feedback (após escolha) -->
+        <div class="feedback-box hidden" id="feedback-box">
+          <p class="feedback-text" id="feedback-text"></p>
+          <button class="pixel-btn pixel-btn-small" id="btn-next" onclick="Game.nextScenario()">
+            CONTINUAR ▶
+          </button>
+        </div>
+
+        <!-- Escolhas -->
+        <div class="choices-grid" id="choices-grid">
+          <!-- Rendered by JS -->
+        </div>
+      </main>
+    </div>
+
+    <!-- ==================== TELA DE RESULTADOS ==================== -->
+    <div id="screen-results" class="screen">
+      <div class="results-container">
+        <h2 class="results-title">📊 RELATÓRIO DE EVOLUÇÃO PROFISSIONAL</h2>
+        
+        <div class="results-profile" id="results-profile">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div class="results-grid">
+          <!-- Barras Comparativas -->
+          <div class="results-bars" id="results-bars">
+            <!-- Rendered by JS -->
+          </div>
+
+          <!-- Análise -->
+          <div class="results-analysis" id="results-analysis">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Dicas de Melhoria -->
+        <div class="results-tips" id="results-tips">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div class="results-footer">
+          <p class="results-message">🌟 Lembre-se: o crescimento é contínuo. Sempre há espaço para evoluir!</p>
+          <button class="pixel-btn pixel-btn-primary" onclick="Game.restart()">
+            🔄 JOGAR NOVAMENTE
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
