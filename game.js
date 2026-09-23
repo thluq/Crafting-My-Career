@@ -214,9 +214,8 @@ const Game = {
 
     this.showScreen('screen-transition');
 
-    // Animate bar and auto-transition
+    // Animate bar
     setTimeout(() => { fill.style.width = '100%'; }, 500);
-    setTimeout(() => { this.startGameScreen(); }, 3000);
   },
 
   // ===== TELA DE JOGO =====
