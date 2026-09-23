@@ -23,7 +23,7 @@ const Game = {
   // ===== INICIALIZAÇÃO =====
   init() {
     // Contar total de cenários
-    this.state.totalScenarios = PHASES.reduce((sum, p) => sum + p.scenarios.length, 0);
+    
     // Renderizar tela inicial
     this.showScreen('screen-title');
   },
@@ -178,6 +178,7 @@ const Game = {
     if (!name || !this.state.characterId || !this.state.trait || !this.state.careerId) return;
 
     this.state.playerName = name;
+    this.state.totalScenarios = CAREER_PHASES[this.state.careerId].reduce((sum, p) => sum + p.scenarios.length, 0);
 
     // Apply trait effects to base attributes
     const trait = TRAITS.find(t => t.id === this.state.trait);
@@ -198,7 +199,7 @@ const Game = {
 
   // ===== TRANSIÇÃO DE FASE =====
   showPhaseTransition() {
-    const phase = PHASES[this.state.currentPhase];
+    const phase = CAREER_PHASES[this.state.careerId][this.state.currentPhase];
 
     document.getElementById('transition-icon').textContent = phase.icon;
     document.getElementById('transition-phase').textContent = `FASE ${this.state.currentPhase + 1}`;
@@ -310,7 +311,7 @@ const Game = {
   },
 
   renderScenario() {
-    const phase = PHASES[this.state.currentPhase];
+    const phase = CAREER_PHASES[this.state.careerId][this.state.currentPhase];
     const scenario = phase.scenarios[this.state.currentScenario];
 
     // Update phase indicator
@@ -360,7 +361,7 @@ const Game = {
   },
 
   makeChoice(index) {
-    const phase = PHASES[this.state.currentPhase];
+    const phase = CAREER_PHASES[this.state.careerId][this.state.currentPhase];
     const scenario = phase.scenarios[this.state.currentScenario];
     const choice = scenario.choices[index];
 
@@ -399,7 +400,7 @@ const Game = {
     this.state.completedScenarios++;
     this.updatePhaseProgress();
 
-    const phase = PHASES[this.state.currentPhase];
+    const phase = CAREER_PHASES[this.state.careerId][this.state.currentPhase];
 
     // Next scenario in current phase?
     if (this.state.currentScenario + 1 < phase.scenarios.length) {
@@ -409,7 +410,7 @@ const Game = {
     }
 
     // Next phase?
-    if (this.state.currentPhase + 1 < PHASES.length) {
+    if (this.state.currentPhase + 1 < CAREER_PHASES[this.state.careerId].length) {
       this.state.currentPhase++;
       this.state.currentScenario = 0;
       this.showPhaseTransition();
@@ -568,7 +569,7 @@ const Game = {
       currentPhase: 0,
       currentScenario: 0,
       choiceHistory: [],
-      totalScenarios: PHASES.reduce((sum, p) => sum + p.scenarios.length, 0),
+      totalScenarios: 0,
       completedScenarios: 0
     };
     this.showScreen('screen-title');
