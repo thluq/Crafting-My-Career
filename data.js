@@ -35,365 +35,436 @@ const TRAITS = [
 
 const CAREER_PHASES = {
   dev: [
-    // ========== FASE 1: PLAN ==========
     {
       id: 'plan',
-      name: 'PLANNING',
-      subtitle: 'Sprint Planning',
+      name: "PLAN",
+      subtitle: "Planejamento",
       icon: '📋',
       color: '#4FC3F7',
       bgGradient: 'linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #283593 100%)',
       bgImage: 'assets/bg_plan.png',
-      intro: 'Segunda-feira, 9h da manhã. Você acabou de entrar na call de Sprint Planning. Sofia, a coordenadora, está compartilhando a tela com as tarefas do projeto.',
+      intro: "Sua equipe est\u00e1 reunida no est\u00fadio. O or\u00e7amento inicial \u00e9 limitado, e o tempo de desenvolvimento definir\u00e1 se a empresa sobrevive ao primeiro ano de opera\u00e7\u00e3o.",
       scenarios: [
         {
-          text: 'Sofia: "Temos que entregar a nova página do site em duas semanas. A diretoria quer pra logo. Alguém acha que vai dar problema?"',
+          text: "Qual projeto ser\u00e1 o ponto de partida do est\u00fadio?",
           choices: [
             {
-              text: '"Sofia, sem regras claras de como fazer, a gente pode travar no meio. Precisamos alinhar isso antes."',
-              effects: { foco: 2, execucao: 0, visao: 2, adaptabilidade: 0 },
-              feedback: 'Sofia anota a observação: "Bem pontuado. Vou cobrar o time de negócios para conseguir essa documentação até amanhã."'
+              text: "Um jogo 2D de fase simples focado em quem gosta de desafio no PC.",
+              effects: {"foco": 1, "execucao": 0, "visao": 3, "adaptabilidade": 0},
+              feedback: "Escopo Controlado. Projeto vi\u00e1vel de validar, com p\u00fablico definido e baixo risco financeiro."
             },
             {
-              text: '"Sem problemas, Sofia! A gente começa a fazer o visual hoje e vai descobrindo o resto no caminho."',
-              effects: { foco: 0, execucao: 2, visao: -1, adaptabilidade: 2 },
-              feedback: 'Marcos, o líder do grupo, franze a testa. "Cuidado com essa pressa, mas gosto do seu otimismo."'
+              text: "Um jogo 3D gigante de tiro online para milhares de pessoas no celular.",
+              effects: {"foco": -2, "execucao": 3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Escopo Inflado. Alto custo operacional e de infraestrutura que estoura o caixa da empresa."
             },
             {
-              text: 'Ficar em silêncio e esperar os devs mais experientes (Marcos ou Beto) responderem primeiro.',
-              effects: { foco: 1, execucao: -1, visao: 0, adaptabilidade: 0 },
-              feedback: 'Você prefere não se arriscar. Marcos acaba assumindo a responsabilidade de revisar o escopo.'
+              text: "Um jogo de estrat\u00e9gia por turnos focando na arquitetura de sistemas.",
+              effects: {"foco": 0, "execucao": 0, "visao": 2, "adaptabilidade": 1},
+              feedback: "Nicho T\u00e9cnico. Demanda alta complexidade de l\u00f3gica, mas garante previsibilidade de produ\u00e7\u00e3o."
             },
             {
-              text: '"Eu topo pegar essa task! Se a gente usar aquela biblioteca nova que eu estava estudando, dá pra acelerar bastante!"',
-              effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 1 },
-              feedback: 'Beto sorri: "Isso aí! Sangue no olho!". Mas Sofia parece um pouco cética sobre usar ferramentas não testadas.'
+              text: "Tentar criar o maior jogo do mundo sozinho em uma semana.",
+              effects: {"foco": -3, "execucao": 0, "visao": -4, "adaptabilidade": 0},
+              feedback: "Colapso do Projeto. Falta total de planejamento t\u00e9cnico e inviabilidade operacional."
             }
           ]
         },
         {
-          text: 'A reunião termina e você recebe o primeiro ticket: Configurar o ambiente local e subir o banco de dados. Você abre o README do projeto e...',
+          text: "Como estruturar a rentabiliza\u00e7\u00e3o do produto?",
           choices: [
             {
-              text: '"Nossa, isso tá bem desatualizado. Vou seguir passo a passo e ir atualizando o README para os próximos devs."',
-              effects: { foco: 2, execucao: 1, visao: 2, adaptabilidade: 0 },
-              feedback: 'Demorou mais que o esperado, mas agora o documento está impecável. Marcos agradeceu o esforço no chat.'
+              text: "Vender o jogo por um pre\u00e7o fixo e lan\u00e7ar fases extras pagas depois.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Monetiza\u00e7\u00e3o Direta. Fluxo de caixa previs\u00edvel e sem depend\u00eancia de reten\u00e7\u00e3o cont\u00ednua."
             },
             {
-              text: 'Ignorar o README antigo, copiar os arquivos de configuração do Beto que já está com tudo rodando e partir pro código.',
-              effects: { foco: -1, execucao: 3, visao: 0, adaptabilidade: 1 },
-              feedback: 'Seu ambiente subiu em 10 minutos! Você já está com a IDE aberta.'
+              text: "Deixar o jogo de gra\u00e7a, mas cobrar por itens cosm\u00e9ticos dentro do aplicativo.",
+              effects: {"foco": 0, "execucao": 2, "visao": 0, "adaptabilidade": 2},
+              feedback: "Modelo Freemium. Aumenta o volume da base de usu\u00e1rios e exige escala r\u00e1pida."
             },
             {
-              text: '"Vou dar uma olhada na arquitetura do projeto no diagrama primeiro pra entender como esse banco se conecta com a API principal."',
-              effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 },
-              feedback: 'Você gastou um tempo estudando, mas agora entende o fluxo de dados perfeitamente.'
+              text: "Bloquear mec\u00e2nicas de evolu\u00e7\u00e3o para cobrar dinheiro direto de quem quer avan\u00e7ar.",
+              effects: {"foco": 0, "execucao": -2, "visao": -3, "adaptabilidade": 0},
+              feedback: "Rejei\u00e7\u00e3o de Mercado. Compromete a reten\u00e7\u00e3o org\u00e2nica e destr\u00f3i o engajamento dos usu\u00e1rios."
+            },
+            {
+              text: "Deixar tudo gratuito e esperar doa\u00e7\u00f5es sem contrato ou plano de incentivo.",
+              effects: {"foco": -3, "execucao": -3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Insolv\u00eancia. Falta de modelo de neg\u00f3cios que gera fal\u00eancia imediata do est\u00fadio."
             }
           ]
         },
         {
-          text: 'Beto (Sênior): "Ei, vi que você pegou a task da tela inicial de pagamento. Quer que eu faça um pair programming com você pra dar um gás inicial?"',
+          text: "O escopo est\u00e1 maior que a capacidade de entrega dentro do prazo. Como agir?",
           choices: [
             {
-              text: '"Claro, Beto! Vai ser ótimo pra eu pegar os padrões de código da equipe mais rápido."',
-              effects: { foco: 1, execucao: 1, visao: 0, adaptabilidade: 2 },
-              feedback: 'Vocês codam juntos por 2 horas. Você aprendeu atalhos novos que não conhecia!'
+              text: "Cortar recursos secund\u00e1rios e focar na entrega do n\u00facleo funcional do produto (MVP).",
+              effects: {"foco": 3, "execucao": 0, "visao": 0, "adaptabilidade": 1},
+              feedback: "Corte de Escopo T\u00e1tico. Garante a entrega do produto principal com estabilidade e dentro do prazo."
             },
             {
-              text: '"Valeu Beto, mas prefiro tentar quebrar a cabeça sozinho um pouco primeiro. Se eu travar muito, te chamo!"',
-              effects: { foco: 2, execucao: 0, visao: 1, adaptabilidade: 0 },
-              feedback: 'Beto faz um joinha. Você passa a tarde imerso no código, desenvolvendo sua autonomia.'
+              text: "Aumentar a carga de trabalho do time sem ajustar os fluxos e metodologias de entrega.",
+              effects: {"foco": 0, "execucao": -2, "visao": 0, "adaptabilidade": -3},
+              feedback: "Burnout e Desfalque. Desgasta o time e resulta na perda de talentos essenciais no meio do ciclo."
+            },
+            {
+              text: "Adiar o lan\u00e7amento por 4 anos para incluir todas as mec\u00e2nicas originalmente planejadas.",
+              effects: {"foco": 0, "execucao": -2, "visao": -1, "adaptabilidade": 0},
+              feedback: "Defasagem Tecnol\u00f3gica. O produto perde a janela de oportunidade do mercado."
+            },
+            {
+              text: "Remover o sistema de persist\u00eancia de dados (save) para economizar horas de c\u00f3digo.",
+              effects: {"foco": -2, "execucao": 0, "visao": -3, "adaptabilidade": 0},
+              feedback: "Falha de Requisito B\u00e1sica. Degrada completamente a experi\u00eancia operacional do produto."
             }
           ]
         }
       ]
     },
-
-    // ========== FASE 2: DO ==========
     {
       id: 'do',
-      name: 'CODING',
-      subtitle: 'Mão no Código',
-      icon: '💻',
+      name: "DO",
+      subtitle: "Execu\u00e7\u00e3o e Constru\u00e7\u00e3o",
+      icon: '🔨',
       color: '#FF7043',
       bgGradient: 'linear-gradient(135deg, #1a0a00 0%, #4a1500 50%, #bf360c 100%)',
       bgImage: 'assets/bg_do.png',
-      intro: 'A Sprint está na metade. O fone de ouvido está tocando sua playlist de foco, o café está quente e o terminal está aberto.',
+      intro: "A produ\u00e7\u00e3o est\u00e1 a todo vapor. Motores gr\u00e1ficos configurados, reposit\u00f3rios abertos e os primeiros bugs de compila\u00e7\u00e3o surgindo na tela.",
       scenarios: [
         {
-          text: 'Você está implementando a integração da API, mas percebe que a biblioteca recomendada pela Sofia não suporta um dos métodos necessários.',
+          text: "O personagem est\u00e1 colidindo incorretamente e travando na geometria do cen\u00e1rio. Como solucionar?",
           choices: [
             {
-              text: 'Escrever uma função customizada do zero para contornar o problema e manter a biblioteca.',
-              effects: { foco: 2, execucao: 2, visao: 0, adaptabilidade: 0 },
-              feedback: 'Você suou a camisa, mas o código funcionou. Uma solução criativa e técnica.'
+              text: "Refatorar o componente de colis\u00e3o no c\u00f3digo e simplificar os volumes geom\u00e9tricos de contato.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Corre\u00e7\u00e3o Estrutural. Elimina a falha de execu\u00e7\u00e3o e mant\u00e9m o processamento otimizado."
             },
             {
-              text: '"Sofia, a biblioteca X não vai rolar. Encontrei a Y que faz tudo nativamente, mas vamos precisar mudar a documentação. Posso seguir?"',
-              effects: { foco: 0, execucao: 0, visao: 2, adaptabilidade: 2 },
-              feedback: 'Sofia demora a responder, mas concorda: "Se é mais seguro, mande bala. Mas me avise se o prazo mudar."'
+              text: "Inserir colisores invis\u00edveis adicionais ao redor do obst\u00e1culo para mascarar o problema.",
+              effects: {"foco": -1, "execucao": 0, "visao": 0, "adaptabilidade": 2},
+              feedback: "Solu\u00e7\u00e3o Paliativa. Resolve pontualmente, mas cria d\u00e9bito t\u00e9cnico para as fases seguintes."
             },
             {
-              text: 'Deixar esse método específico comentado com um TODO e avançar com o resto da tela para entregar algo visual logo.',
-              effects: { foco: -1, execucao: 3, visao: 0, adaptabilidade: 1 },
-              feedback: 'A tela ficou pronta rápido e o time de design adorou ver! Mas a dívida técnica ficou pra depois...'
+              text: "Deletar o reposit\u00f3rio do sistema de movimenta\u00e7\u00e3o e reescrever do zero a duas semanas do prazo final.",
+              effects: {"foco": -2, "execucao": -3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Refatora\u00e7\u00e3o Precipitada. Compromete todo o cronograma de testes da equipe."
+            },
+            {
+              text: "Redefinir a documenta\u00e7\u00e3o do jogo para dizer que atravessar paredes \u00e9 uma mec\u00e2nica intencional.",
+              effects: {"foco": 0, "execucao": -2, "visao": -2, "adaptabilidade": 0},
+              feedback: "Falta de Rigor. A falha de c\u00f3digo fica evidente para o usu\u00e1rio final e compromete o padr\u00e3o do est\u00fadio."
             }
           ]
         },
         {
-          text: 'ALERTA NO SLACK! O servidor de homologação caiu de novo. Marcos manda no canal geral: "Alguém rodou algum script pesado no banco?"',
+          text: "O time de programa\u00e7\u00e3o n\u00e3o possui especialistas na \u00e1rea visual e sonora. Qual a estrat\u00e9gia de suprimento?",
           choices: [
             {
-              text: '"Fui eu, Marcos. Fui testar uma query de histórico e travou tudo. Como posso matar o processo daqui?"',
-              effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 3 },
-              feedback: 'Marcos responde rápido: "Tranquilo, acontece. Roda o comando X no terminal." O servidor volta em segundos.'
+              text: "Terceirizar a demanda enviando especifica\u00e7\u00f5es claras para freelancers e est\u00fadios parceiros.",
+              effects: {"foco": 3, "execucao": 0, "visao": 0, "adaptabilidade": 1},
+              feedback: "Outsourcing Estruturado. Garante entregas de alta qualidade sem inflar o custo fixo do est\u00fadio."
             },
             {
-              text: 'Ignorar o chat. Você não tem certeza se foi você, e prefere continuar focado na sua feature enquanto alguém resolve.',
-              effects: { foco: 2, execucao: 1, visao: -1, adaptabilidade: 0 },
-              feedback: 'O servidor ficou fora por 20 minutos até Beto encontrar o problema. Ninguém brigou, mas o time perdeu tempo.'
+              text: "Adquirir pacotes de arte e \u00e1udio prontos em marketplaces e integr\u00e1-los \u00e0 pipeline.",
+              effects: {"foco": -1, "execucao": 3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Produ\u00e7\u00e3o Acelerada. Reduz drasticamente o tempo de entrega, embora reduza a identidade \u00fanica do jogo."
             },
             {
-              text: 'Rapidamente abrir os logs da AWS para investigar se a sua API causou o problema antes de falar qualquer coisa.',
-              effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 0 },
-              feedback: 'Você acha o erro no log: não foi a sua query! Você manda o print no grupo ajudando a resolver o mistério.'
+              text: "Produzir os recursos visuais de qualquer forma no Paint e gravar \u00e1udios em microfones internos.",
+              effects: {"foco": 0, "execucao": 0, "visao": -2, "adaptabilidade": 1},
+              feedback: "Baixo Padr\u00e3o Visual. Reduz o apelo comercial do produto por falta de apuro t\u00e9cnico."
+            },
+            {
+              text: "Baixar artes e sons protegidos por direitos autorais na internet e integrar no build final.",
+              effects: {"foco": -4, "execucao": 0, "visao": -4, "adaptabilidade": 0},
+              feedback: "Viola\u00e7\u00e3o Legal. O produto \u00e9 removido das plataformas e o est\u00fadio responde a processos jur\u00eddicos."
             }
           ]
         },
         {
-          text: 'Faltam dois dias pra fechar a Sprint. Beto te manda mensagem: "Cara, tô afogado aqui. Consegue pegar uma task de validação de formulário que era minha?"',
+          text: "Como estruturar a fase de testes antes de subir o build para a loja?",
           choices: [
             {
-              text: '"Manda pra cá, Beto! Fico até um pouco mais tarde hoje, mas a gente garante a Sprint."',
-              effects: { foco: 0, execucao: 3, visao: 0, adaptabilidade: 1 },
-              feedback: 'Beto fica extremamente agradecido. Você ganha muitos pontos com a equipe, mas o cansaço bate forte à noite.'
+              text: "Contratar uma empresa ou equipe especializada em testes de qualidade para rastrear e documentar falhas.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "QA Profissional. Mapeia exce\u00e7\u00f5es t\u00e9cnicas e falhas de mem\u00f3ria antes da distribui\u00e7\u00e3o."
             },
             {
-              text: '"Beto, se eu pegar isso agora, vou arriscar não entregar a integração da API com qualidade. Acho melhor não."',
-              effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: -1 },
-              feedback: 'Beto entende perfeitamente. Sua API ficou com código impecável, mesmo que a task dele atrase.'
+              text: "Organizar um teste fechado com um grupo restrito de usu\u00e1rios e monitorar a telemetria.",
+              effects: {"foco": 0, "execucao": 0, "visao": 3, "adaptabilidade": 1},
+              feedback: "Valida\u00e7\u00e3o de Campo. Coleta dados reais de desempenho em diferentes configura\u00e7\u00f5es de hardware."
             },
             {
-              text: '"Posso pegar, mas me ensina aquele truque de RegEx que você usa, assim eu faço bem mais rápido."',
-              effects: { foco: 0, execucao: 1, visao: 1, adaptabilidade: 2 },
-              feedback: 'Vocês negociaram bem. Ele te explicou o Regex, você terminou sua parte e ainda salvou a dele!'
+              text: "Validar o jogo executando apenas um teste r\u00e1pido na m\u00e1quina de desenvolvimento principal.",
+              effects: {"foco": 0, "execucao": 1, "visao": -3, "adaptabilidade": 0},
+              feedback: "Amostragem Insuficiente. O jogo trava em hardware diferente do utilizado no desenvolvimento."
+            },
+            {
+              text: "Subir a vers\u00e3o final para a loja sem nenhuma etapa formal de testes.",
+              effects: {"foco": -3, "execucao": -4, "visao": 0, "adaptabilidade": 0},
+              feedback: "Lan\u00e7amento Desastroso. A taxa de falhas impede a execu\u00e7\u00e3o em massa e gera pedidos de reembolso."
             }
           ]
         }
       ]
     },
-
-    // ========== FASE 3: CHECK ==========
     {
       id: 'check',
-      name: 'CODE REVIEW',
-      subtitle: 'Revisão e Testes',
+      name: "CHECK",
+      subtitle: "An\u00e1lise e Monitoramento",
       icon: '🔍',
       color: '#AB47BC',
       bgGradient: 'linear-gradient(135deg, #1a0033 0%, #4a0072 50%, #7b1fa2 100%)',
       bgImage: 'assets/bg_check.png',
-      intro: 'Sexta-feira. Você abre um Pull Request (PR) do seu código para a branch principal. É hora de ser avaliado pelos seus pares.',
+      intro: "O bot\u00e3o de publica\u00e7\u00e3o foi pressionado. O tr\u00e1fego de usu\u00e1rios come\u00e7a a subir, os servidores s\u00e3o acionados e a telemetria dispara.",
       scenarios: [
         {
-          text: 'Marcos revisa seu PR e deixa 12 comentários. A maioria sobre pequenos padrões de indentação e nomes de variáveis, mas um deles diz: "Essa lógica no ForLoop vai dar gargalo em produção."',
+          text: "A taxa de acessos simult\u00e2neos excedeu a proje\u00e7\u00e3o e derrubou a infraestrutura de rede. O que fazer?",
           choices: [
             {
-              text: '"Entendido, Marcos. Vou refatorar para usar Map e Filter, e já corrijo o estilo do código também."',
-              effects: { foco: 1, execucao: 1, visao: 1, adaptabilidade: 2 },
-              feedback: 'Você aceitou o feedback sem ego. O código novo ficou muito mais performático!'
+              text: "Executar o dimensionamento autom\u00e1tico dos servidores (Auto-Scaling) e redistribuir a carga.",
+              effects: {"foco": 0, "execucao": 3, "visao": 0, "adaptabilidade": 1},
+              feedback: "Resposta T\u00e9cnica Imediata. Restabelece a estabilidade do servi\u00e7o e absorve o pico de tr\u00e1fego."
             },
             {
-              text: '"Marcos, a lógica do loop eu vi no StackOverflow e parecia bem otimizada pra esse caso. Quer que eu rode um teste de carga pra provar?"',
-              effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: -1 },
-              feedback: 'Marcos acha justo. O teste de carga mostra que ele tinha razão no final, mas a discussão técnica foi excelente.'
+              text: "Implementar uma fila de espera ordenada por c\u00f3digo para controlar o fluxo de login nos n\u00f3s ativos.",
+              effects: {"foco": 1, "execucao": 0, "visao": 2, "adaptabilidade": 0},
+              feedback: "Mitiga\u00e7\u00e3o Sistem\u00e1tica. Protege o banco de dados principal de quedas em cadeia."
             },
             {
-              text: 'Corrigir tudo em silêncio o mais rápido possível e pedir novo review para não atrasar a entrega.',
-              effects: { foco: 2, execucao: 2, visao: 0, adaptabilidade: 0 },
-              feedback: 'Tudo corrigido a jato! O PR foi aprovado, embora você nem tenha absorvido muito o porquê de cada mudança.'
+              text: "Desligar o cluster principal sem comunicar o status da infraestrutura aos usu\u00e1rios.",
+              effects: {"foco": 0, "execucao": -3, "visao": -2, "adaptabilidade": 0},
+              feedback: "Inoper\u00e2ncia. Causa interrup\u00e7\u00e3o abrupta e gera perda de confian\u00e7a na plataforma."
+            },
+            {
+              text: "Redirecionar a responsabilidade da falha de conex\u00e3o para as operadoras de internet dos clientes.",
+              effects: {"foco": 0, "execucao": 0, "visao": -3, "adaptabilidade": -2},
+              feedback: "Erro de Diagn\u00f3stico. Ignora os logs do servidor e atrasa a solu\u00e7\u00e3o do problema real."
             }
           ]
         },
         {
-          text: 'Na etapa de testes da interface, o QA (Qualidade) reporta um bug: "No iPhone 11, o botão de pagar fica pela metade escondido atrás do teclado virtual."',
+          text: "A telemetria indica que 70% dos jogadores abandonam a aplica\u00e7\u00e3o na Fase 3 por pico absurdo de dificuldade.",
           choices: [
             {
-              text: '"Putz, iPhone antigo sempre quebra o CSS. Vou tentar colocar uma media-query rápida pra esse tamanho de tela e seguir."',
-              effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 1 },
-              feedback: 'A correção rápida funcionou, mas o código CSS ficou um pouquinho mais sujo. O QA aprovou.'
+              text: "Recalibrar as vari\u00e1veis de atrito e balancear a curva de progress\u00e3o no arquivo de configura\u00e7\u00e3o do jogo.",
+              effects: {"foco": 0, "execucao": 0, "visao": 3, "adaptabilidade": 1},
+              feedback: "Ajuste Baseado em Dados. Corrige o gargalo de reten\u00e7\u00e3o atrav\u00e9s de dados quantitativos."
             },
             {
-              text: '"Isso deve ser um problema estrutural do nosso layout. Vou dar um passo pra trás e reescrever usando Flexbox fluido pra funcionar em tudo."',
-              effects: { foco: 2, execucao: 0, visao: 2, adaptabilidade: 0 },
-              feedback: 'Deu trabalho extra, mas resolveu não só esse problema, como previu falhas futuras em outras telas pequenas.'
+              text: "Subir um patch imediato alterando valores sem testar o impacto nas fases subsequentes.",
+              effects: {"foco": -2, "execucao": 2, "visao": 0, "adaptabilidade": 0},
+              feedback: "Corre\u00e7\u00e3o Apressada. Quebra o desafio das fases avan\u00e7adas por falta de simula\u00e7\u00e3o."
+            },
+            {
+              text: "Remover o sistema de avalia\u00e7\u00f5es das plataformas para barrar a entrada de coment\u00e1rios negativos.",
+              effects: {"foco": -3, "execucao": 0, "visao": 0, "adaptabilidade": -3},
+              feedback: "Supress\u00e3o de Dados. Bloqueia o feedback dos usu\u00e1rios e impede a melhoria cont\u00ednua do sistema."
+            },
+            {
+              text: "Desabilitar a Fase 3 por completo do c\u00f3digo para evitar que os usu\u00e1rios cheguem ao erro.",
+              effects: {"foco": 0, "execucao": -3, "visao": -2, "adaptabilidade": 0},
+              feedback: "Mutila\u00e7\u00e3o de Produto. Entrega um produto incompleto e desvaloriza o conte\u00fado j\u00e1 criado."
             }
           ]
         },
         {
-          text: 'No fim do dia, Sofia manda os resultados dos primeiros testes com usuários beta: "Galera, eles acharam o fluxo de pagamento incrível, mas disseram que a tela de sucesso tá muito sem graça."',
+          text: "Como identificar a causa exata do abandono do jogo ap\u00f3s os primeiros dias de uso?",
           choices: [
             {
-              text: '"Que bom que a lógica funcionou! Depois o time de UX que lute com a tela de sucesso, a gente garantiu a segurança."',
-              effects: { foco: 2, execucao: 0, visao: -1, adaptabilidade: 1 },
-              feedback: 'Você manteve o foco nas suas prioridades de Dev back/front lógico.'
+              text: "Analisar o funil de telemetria para mapear em qual cena, evento ou rotina o usu\u00e1rio fecha a aplica\u00e7\u00e3o.",
+              effects: {"foco": 1, "execucao": 0, "visao": 3, "adaptabilidade": 0},
+              feedback: "An\u00e1lise de M\u00e9tricas. Identifica com precis\u00e3o cir\u00fargica a etapa exata de falha no engajamento."
             },
             {
-              text: '"Sofia, se eu adicionar uma biblioteca leve de animação de confetes, a gente entrega algo visualmente legal em meia horinha. Topa?"',
-              effects: { foco: 0, execucao: 1, visao: 1, adaptabilidade: 2 },
-              feedback: 'Sofia adorou a ideia! O confete foi a cereja do bolo que fez os clientes sorrirem.'
+              text: "Disparar relat\u00f3rios autom\u00e1ticos de diagn\u00f3stico de sistema no encerramento da sess\u00e3o.",
+              effects: {"foco": 0, "execucao": 2, "visao": 1, "adaptabilidade": 0},
+              feedback: "Coleta T\u00e9cnica de Erros. Descobre se a sa\u00edda foi motivada por travamentos (crashes) ocultos."
             },
             {
-              text: '"Vou olhar as métricas do Heatmap pra ver quanto tempo eles ficam nessa tela de sucesso. Talvez a gente possa colocar um banner promocional nela."',
-              effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 0 },
-              feedback: 'Sua visão de negócios impressionou a Sofia! O banner aumentou o engajamento do app.'
+              text: "Monitorar apenas as impress\u00f5es e engajamento das redes sociais para inferir o uso do jogo.",
+              effects: {"foco": 0, "execucao": 1, "visao": -2, "adaptabilidade": 0},
+              feedback: "M\u00e9trica de Vaidade. Dados de redes sociais n\u00e3o refletem o comportamento real do usu\u00e1rio dentro da aplica\u00e7\u00e3o."
+            },
+            {
+              text: "Desconsiderar os dados de abandono por acreditar que a rotatividade de usu\u00e1rios \u00e9 puramente aleat\u00f3ria.",
+              effects: {"foco": 0, "execucao": 0, "visao": -3, "adaptabilidade": -2},
+              feedback: "Neglig\u00eancia Anal\u00edtica. Mant\u00e9m o vazamento de usu\u00e1rios ativo sem aplicar corre\u00e7\u00f5es."
             }
           ]
         }
       ]
     },
-
-    // ========== FASE 4: ACT ==========
     {
       id: 'act',
-      name: 'REFACTORING',
-      subtitle: 'Mudança de Rota',
-      icon: '⚙️',
+      name: "ACT",
+      subtitle: "Padroniza\u00e7\u00e3o e Atualiza\u00e7\u00f5es",
+      icon: '🔄',
       color: '#EF5350',
       bgGradient: 'linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #c62828 100%)',
       bgImage: 'assets/bg_act.png',
-      intro: 'Segunda semana. A diretoria fez uma reunião de emergência com um investidor. A Sofia vem até a equipe com uma feição tensa.',
+      intro: "O jogo est\u00e1 publicado e est\u00e1vel. Agora o foco \u00e9 a sustenta\u00e7\u00e3o do produto: corre\u00e7\u00f5es cr\u00edticas, ciclos de atualiza\u00e7\u00e3o e reinvestimento dos lucros.",
       scenarios: [
         {
-          text: 'Sofia (PM): "Má notícia, time. O parceiro de pagamentos mudou as regras de compliance ontem à noite. Precisamos adicionar autenticação em dois fatores na mesma tela que vocês já terminaram."',
+          text: "O que deve ser priorizado na primeira grande atualiza\u00e7\u00e3o do produto?",
           choices: [
             {
-              text: 'Suspirar forte. "Ok, Sofia. Joga o ticket pra mim, eu varo a noite refatorando essa integração."',
-              effects: { foco: 0, execucao: 3, visao: 0, adaptabilidade: 1 },
-              feedback: 'Sua dedicação é inquestionável. Você entrega no prazo, a custo de algumas olheiras.'
+              text: "Consolidar a corre\u00e7\u00e3o de erros priorit\u00e1rios do backlog e introduzir m\u00f3dulos adicionais de conte\u00fado.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Ciclo de Manuten\u00e7\u00e3o Equilibrado. Estabiliza o produto base enquanto reengaja a base ativa."
             },
             {
-              text: '"Espera, a gente pode usar o token do login inicial em vez de criar um 2FA novo só pro pagamento? Evitaria quebrar toda a UI."',
-              effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 },
-              feedback: 'Sofia arregala os olhos: "Isso é genial e salva semanas de trabalho!". Visão sistêmica pura!'
+              text: "Desenvolver apenas novos pacotes de microtransa\u00e7\u00f5es pagas enquanto o c\u00f3digo base permanece inst\u00e1vel.",
+              effects: {"foco": -3, "execucao": 0, "visao": -2, "adaptabilidade": 0},
+              feedback: "Erro de Prioriza\u00e7\u00e3o. Aumenta a taxa de rejei\u00e7\u00e3o por negligenciar a estabilidade t\u00e9cnica."
             },
             {
-              text: '"Beleza! A gente cria um modal no meio da tela, assim não precisa mexer no layout que já tá pronto."',
-              effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 3 },
-              feedback: 'Solução ágil, barata e funcional. O time elogia sua flexibilidade para contornar a crise.'
+              text: "Reescrever a arquitetura completa do projeto para alterar o g\u00eanero principal do produto sem aviso.",
+              effects: {"foco": 0, "execucao": 0, "visao": -2, "adaptabilidade": -3},
+              feedback: "Ruptura de Produto. Descarta a base de usu\u00e1rios conquistada e desalinha a proposta do est\u00fadio."
+            },
+            {
+              text: "Cobrar uma taxa extra para disponibilizar o patch de corre\u00e7\u00e3o das falhas do lan\u00e7amento.",
+              effects: {"foco": 0, "execucao": -3, "visao": -4, "adaptabilidade": 0},
+              feedback: "Pr\u00e1tica Abusiva. Gera crise de imagem instant\u00e2nea e boicote comercial nas plataformas."
             }
           ]
         },
         {
-          text: 'Beto entra na call revoltado: "Isso é um absurdo! A gente passa 10 dias fazendo um código lindo pra ter que remendar tudo na última hora! Eu não aguento isso!"',
+          text: "O volume de usu\u00e1rios ativos di\u00e1rios apresentou queda acentuada ap\u00f3s meses do lan\u00e7amento. Como reverter?",
           choices: [
             {
-              text: '"Concordo plenamente, Beto! É muita falta de respeito com o time técnico não alinharem isso antes."',
-              effects: { foco: 0, execucao: -1, visao: 0, adaptabilidade: -1 },
-              feedback: 'O clima fica tóxico. A equipe passa mais tempo reclamando do que resolvendo o problema.'
+              text: "Integrar novos eventos com marcos temporais e liberar APIs para integra\u00e7\u00e3o com parceiros e criadores.",
+              effects: {"foco": 0, "execucao": 3, "visao": 0, "adaptabilidade": 1},
+              feedback: "Tra\u00e7\u00e3o Operacional. Restabelece o fluxo de novos usu\u00e1rios atrav\u00e9s de expans\u00e3o de alcance."
             },
             {
-              text: '"Beto, respira. A gente salva a branch antiga no repositório. Pelo menos a gente aprendeu muito montando a arquitetura base."',
-              effects: { foco: 1, execucao: 0, visao: 1, adaptabilidade: 2 },
-              feedback: 'Você conseguiu acalmar os ânimos. Ver o lado bom trouxe a motivação de volta pra sala.'
+              text: "Modificar os par\u00e2metros de matchmaking para for\u00e7ar a integra\u00e7\u00e3o entre inst\u00e2ncias de jogos distintas.",
+              effects: {"foco": -1, "execucao": 0, "visao": 0, "adaptabilidade": 2},
+              feedback: "Manobra de Infraestrutura. Preenche salas de espera, mas pode degradar a lat\u00eancia da conex\u00e3o."
             },
             {
-              text: '"Bora focar no que a gente tem controle, Beto. Se a gente chorar agora o prazo não muda. Quer ajuda com o refactory da sua parte?"',
-              effects: { foco: 2, execucao: 1, visao: 0, adaptabilidade: 1 },
-              feedback: 'Pragmatismo que chama! Beto resmunga mas engole o choro e vocês voltam a codar forte.'
+              text: "Abandonar a manuten\u00e7\u00e3o do t\u00edtulo atual e iniciar do zero a produ\u00e7\u00e3o de uma sequ\u00eancia.",
+              effects: {"foco": -2, "execucao": 0, "visao": -1, "adaptabilidade": 0},
+              feedback: "Descontinuidade Prematura. Descarta um ativo vi\u00e1vel e gera desconfian\u00e7a sobre novos lan\u00e7amentos."
+            },
+            {
+              text: "Manipular visualmente os contadores de usu\u00e1rios no dashboard p\u00fablico para simular alta reten\u00e7\u00e3o.",
+              effects: {"foco": 0, "execucao": -2, "visao": -3, "adaptabilidade": 0},
+              feedback: "Falsifica\u00e7\u00e3o de Dados. Perda imediata de credibilidade t\u00e9cnica quando auditado."
             }
           ]
         },
         {
-          text: 'O prazo está se esgotando e o Marcos vira pra você: "A gente não vai conseguir entregar tudo. Ou a gente sobe sem os testes unitários da nova feature, ou atrasa o deploy pro cliente em dois dias."',
+          text: "O projeto obteve retorno financeiro positivo. Qual a destina\u00e7\u00e3o dos recursos no plano de neg\u00f3cios?",
           choices: [
             {
-              text: '"Eu voto em atrasar. Entregar código sem teste de pagamento é pedir pra ter prejuízo financeiro na madrugda."',
-              effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 },
-              feedback: 'Marcos assente: "Exato. Segurança em primeiro lugar. Vou alinhar o atraso com a diretoria."'
+              text: "Alocar capital no fundo de reserva do est\u00fadio, provisionar custos fixos e estruturar o plano de cargos da equipe.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Sustentabilidade Financeira. Garante runway operacional longo e protege o est\u00fadio contra oscila\u00e7\u00f5es de mercado."
             },
             {
-              text: '"Sobe sem os testes automatizados. Eu testo na mão tudo hoje à noite, a gente garante a entrega e eu faço os testes na próxima Sprint."',
-              effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 2 },
-              feedback: 'Arriscado, mas você assumiu a responsabilidade e entregou o valor para o cliente no prazo combinado!'
+              text: "Reinvestir 100% da receita em campanhas de tr\u00e1fego pago de convers\u00e3o imediata sem reten\u00e7\u00e3o de reserva.",
+              effects: {"foco": -2, "execucao": 2, "visao": 0, "adaptabilidade": 0},
+              feedback: "Aloca\u00e7\u00e3o Agressiva. Gera picos de acesso de curto prazo, mas deixa o est\u00fadio vulner\u00e1vel a imprevistos."
+            },
+            {
+              text: "Publicar o roadmap t\u00e9cnico de atualiza\u00e7\u00f5es para os pr\u00f3ximos 6 meses com metas e entreg\u00e1veis claros.",
+              effects: {"foco": 3, "execucao": 0, "visao": 0, "adaptabilidade": 1},
+              feedback: "Governan\u00e7a Transparente. Alinha expectativas de mercado e estabelece padr\u00f5es de entrega."
+            },
+            {
+              text: "Retirar integralmente os dividendos sem provisionar impostos, infraestrutura ou manuten\u00e7\u00e3o de servidor.",
+              effects: {"foco": -4, "execucao": 0, "visao": -3, "adaptabilidade": 0},
+              feedback: "Sangria Financeira. Provoca o colapso do est\u00fadio no primeiro vencimento de despesas fixas."
             }
           ]
         }
       ]
     },
-
-    // ========== FASE 5: KAIZEN ==========
     {
       id: 'kaizen',
-      name: 'RETROSPECTIVA',
-      subtitle: 'Evolução Contínua',
-      icon: '🌟',
+      name: "KAIZEN",
+      subtitle: "Melhoria Cont\u00ednua",
+      icon: '🌿',
       color: '#66BB6A',
       bgGradient: 'linear-gradient(135deg, #002200 0%, #1b5e20 50%, #388e3c 100%)',
       bgImage: 'assets/bg_kaizen.png',
-      intro: 'A Sprint terminou. O módulo subiu e as métricas estão ótimas. A equipe se reúne numa videochamada descontraída para a Reunião de Avaliação (Retro).',
+      intro: "O projeto estabilizou e deu lucro. \u00c9 o momento de reunir a lideran\u00e7a t\u00e9cnica, revisar o post-mortem do desenvolvimento e aperfei\u00e7oar os processos para o pr\u00f3ximo ciclo.",
       scenarios: [
         {
-          text: 'Sofia abre o board da Retro: "Galera, mandaram muito bem! Mas vamos ser sinceros: o que deu errado nessa Sprint que precisamos melhorar?"',
+          text: "O tempo de compila\u00e7\u00e3o e resolu\u00e7\u00e3o de bugs no projeto anterior atrasou as entregas. Como prevenir o gargalo?",
           choices: [
             {
-              text: '"A falha de comunicação com o parceiro lá do início quase nos custou o projeto. Precisamos criar um processo de análise de documentação antes de codar."',
-              effects: { foco: 2, execucao: 0, visao: 3, adaptabilidade: 0 },
-              feedback: 'Excelente análise de causa-raiz. O time decide implementar uma etapa de "Tech Design" antes das próximas Sprints.'
+              text: "Criar uma biblioteca interna de scripts modulares testados e implementar diretrizes estritas de refatora\u00e7\u00e3o.",
+              effects: {"foco": 1, "execucao": 0, "visao": 0, "adaptabilidade": 3},
+              feedback: "Reuso de C\u00f3digo. Estabelece uma arquitetura escal\u00e1vel e acelera a fase inicial de novos projetos."
             },
             {
-              text: '"A gente ficou muito dependente do Marcos pra aprovar PRs no Revisão de Código. Precisamos diluir isso entre os outros devs."',
-              effects: { foco: 1, execucao: 0, visao: 2, adaptabilidade: 1 },
-              feedback: 'Marcos concorda aliviado. Isso vai desafogar ele e dar mais autonomia para você e o Beto.'
+              text: "Implementar uma pipeline de Integra\u00e7\u00e3o Cont\u00ednua (CI/CD) com testes unit\u00e1rios autom\u00e1ticos a cada commit.",
+              effects: {"foco": 0, "execucao": 1, "visao": 3, "adaptabilidade": 0},
+              feedback: "Automa\u00e7\u00e3o de Qualidade. Detecta regress\u00f5es de c\u00f3digo no momento exato em que s\u00e3o inseridas."
             },
             {
-              text: '"Acho que a gente codou muito e comemorou pouco. A gente se estressou atoa com a mudança no final, podíamos ter levado mais leve."',
-              effects: { foco: 0, execucao: 0, visao: 1, adaptabilidade: 3 },
-              feedback: 'Risadas no chat. O time percebe que o clima estava muito pesado e decide marcar uma partida de jogo online toda sexta.'
+              text: "Aumentar a jornada di\u00e1ria da equipe de tecnologia nas semanas de fechamento de sprint.",
+              effects: {"foco": 0, "execucao": -2, "visao": 0, "adaptabilidade": -3},
+              feedback: "Falha de Gest\u00e3o. Tenta compensar defici\u00eancias de processo atrav\u00e9s de sobrecarga operacional."
+            },
+            {
+              text: "Descartar a equipe de desenvolvimento veterana para contratar juniores com custo por hora reduzido.",
+              effects: {"foco": -2, "execucao": 0, "visao": -2, "adaptabilidade": 0},
+              feedback: "Perda de Capital Intelectual. Descarta o aprendizado acumulado e repete erros do passado."
             }
           ]
         },
         {
-          text: 'Marcos te manda uma mensagem no privado: "Seu desempenho foi ótimo para as primeiras semanas. Quer focar em evoluir no quê para a próxima Sprint?"',
+          text: "A entrega de assets externos gerou gargalos na fase final. Como reestruturar essa cadeia?",
           choices: [
             {
-              text: '"Quero mergulhar mais fundo em arquitetura de software e design patterns para evitar aquele gargalo no banco de dados."',
-              effects: { foco: 2, execucao: 0, visao: 2, adaptabilidade: 0 },
-              feedback: 'Marcos sorri. "Ótimo caminho. Vou te mandar uns artigos sobre Solid e Clean Architecture."'
+              text: "Padronizar os crit\u00e9rios de aceite (Definition of Done) e catalogar fornecedores pr\u00e9-qualificados por desempenho.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Controle de Processos. Minimiza o retrabalho e garante a ader\u00eancia t\u00e9cnica dos entreg\u00e1veis."
             },
             {
-              text: '"Quero pegar tickets mais difíceis e assumir mais entregas de código, quero produzir mais!"',
-              effects: { foco: 0, execucao: 3, visao: 0, adaptabilidade: 1 },
-              feedback: 'A fome de código é real! Você está se tornando uma máquina de execução.'
+              text: "Executar sess\u00f5es formais de Post-Mortem com o time para mapear pontos de fric\u00e7\u00e3o e alinhar melhorias.",
+              effects: {"foco": 0, "execucao": 0, "visao": 1, "adaptabilidade": 3},
+              feedback: "Avalia\u00e7\u00e3o Sist\u00eamica. Promove o aprendizado organizacional a partir de falhas reais de produ\u00e7\u00e3o."
             },
             {
-              text: '"Quero aprender a lidar melhor com o time de Produto e Negócios. Entender como a Sofia pensa as métricas."',
-              effects: { foco: 0, execucao: 0, visao: 2, adaptabilidade: 2 },
-              feedback: 'Um caminho brilhante! Desenvolvedores que entendem de negócios viram profissionais muito valiosos.'
+              text: "Proibir a contrata\u00e7\u00e3o de qualquer recurso externo, for\u00e7ando a equipe interna a executar tarefas fora de sua especialidade.",
+              effects: {"foco": 0, "execucao": 0, "visao": -2, "adaptabilidade": -2},
+              feedback: "Perda de Especializa\u00e7\u00e3o. Reduz o padr\u00e3o do produto final e sobrecarrega os profissionais."
+            },
+            {
+              text: "Aceitar o descumprimento de prazos sem renegociar cronogramas ou aplicar penalidades contratuais.",
+              effects: {"foco": -2, "execucao": -1, "visao": 0, "adaptabilidade": 0},
+              feedback: "Aus\u00eancia de Governan\u00e7a. Compromete a previsibilidade do est\u00fadio frente aos investidores."
             }
           ]
         },
         {
-          text: 'A call está acabando. Sofia diz: "Pra fechar, uma palavra que defina essa Sprint pra vocês?"',
+          text: "Como a lideran\u00e7a do est\u00fadio aborda o in\u00edcio do desenvolvimento do segundo jogo?",
           choices: [
             {
-              text: '"Resiliência."',
-              effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 2 },
-              feedback: 'As mudanças de última hora não te abalaram!'
+              text: "\"Documentaremos todas as li\u00e7\u00f5es aprendidas, padr\u00f5es de arquitetura e gargalos superados em nossa Wiki corporativa.\"",
+              effects: {"foco": 3, "execucao": 0, "visao": 0, "adaptabilidade": 1},
+              feedback: "Gest\u00e3o do Conhecimento. Transforma experi\u00eancia operacional em ativos reutiliz\u00e1veis de processo."
             },
             {
-              text: '"Foco."',
-              effects: { foco: 2, execucao: 0, visao: 0, adaptabilidade: 0 },
-              feedback: 'Organização foi o que manteve o barco flutuando.'
+              text: "\"Com base nas m\u00e9tricas e na infraestrutura constru\u00edda, refinaremos nossa pipeline para produzir com mais efici\u00eancia.\"",
+              effects: {"foco": 0, "execucao": 0, "visao": 1, "adaptabilidade": 3},
+              feedback: "Cultura Kaizen. Foca na evolu\u00e7\u00e3o incremental cont\u00ednua dos m\u00e9todos e ferramentas do est\u00fadio."
             },
             {
-              text: '"Entrega."',
-              effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 0 },
-              feedback: 'Mão na massa que trouxe resultados concretos!'
+              text: "\"Nosso sucesso anterior garante que qualquer produto lan\u00e7ado sob nossa marca vender\u00e1 sem ajustes de processo.\"",
+              effects: {"foco": 0, "execucao": 0, "visao": -3, "adaptabilidade": -2},
+              feedback: "Complac\u00eancia Estrat\u00e9gica. Ignora as mudan\u00e7as nas din\u00e2micas de mercado e nos padr\u00f5es t\u00e9cnicos."
             },
             {
-              text: '"Aprendizado."',
-              effects: { foco: 0, execucao: 0, visao: 2, adaptabilidade: 0 },
-              feedback: 'Cada bug foi uma lição para o futuro.'
+              text: "\"Transferiremos toda a responsabilidade de gest\u00e3o t\u00e9cnica para os desenvolvedores e reduziremos a supervis\u00e3o.\"",
+              effects: {"foco": -3, "execucao": -2, "visao": 0, "adaptabilidade": 0},
+              feedback: "Desmobiliza\u00e7\u00e3o do Comando. Causa desalinhamento entre os objetivos de neg\u00f3cio e a execu\u00e7\u00e3o t\u00e9cnica."
             }
           ]
         }
@@ -402,191 +473,311 @@ const CAREER_PHASES = {
   ],
   astronauta: [
     {
-      id: 'plan', name: 'PLAN', subtitle: 'Alarme na Escuridão de Órbita', icon: '📋', color: '#4FC3F7', bgGradient: 'linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #283593 100%)', bgImage: 'assets/bg_astronauta.png',
-      intro: 'A Terra é uma esfera azul brilhante lá fora. Você está no Módulo de Comando quando o painel pisca em luzes amarelas e um bipe contínuo ecoa pela cabine: "Consumo anormal de Oxigênio no Setor 2. Queda de 12% nos últimos minutos." Não há fogo visível, mas a taxa está caindo. Toda a tripulação olha para você esperando um direcionamento.',
+      id: 'plan',
+      name: "PLAN",
+      subtitle: "Planejar",
+      icon: '📋',
+      color: '#4FC3F7',
+      bgGradient: 'linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #283593 100%)',
+      bgImage: 'assets/bg_astronauta.png',
+      intro: "Faltam poucas horas para os motores rugirem. O painel avisa: os tanques de ar pesam toneladas e a viagem dura 6 meses. Se o planejamento do consumo falhar aqui, o ar acaba antes da metade do caminho.",
       scenarios: [
         {
-          text: 'Questão 1.1: O alarme começou a apitar! Qual sua atitude imediata?', choices: [
-            { text: 'A) Isolar a linha no painel e analisar os dados de consumo recentes.', effects: { foco: 3, execucao: -1, visao: 1, adaptabilidade: 0 }, feedback: 'Análise metódica. Entende o problema, mas o ar continua vazando.' },
-            { text: 'B) Vestir a máscara e fechar as válvulas manuais de imediato.', effects: { foco: 0, execucao: 3, visao: -2, adaptabilidade: 0 }, feedback: 'Ação rápida. Estanca a urgência, mas agiu sem diagnóstico completo.' },
-            { text: 'C) Conectar o tablet para verificar se é falha no sensor ou vazamento real.', effects: { foco: 1, execucao: 0, visao: 2, adaptabilidade: 0 }, feedback: 'Verificação. Evita ações drásticas por conta de alarme falso.' },
-            { text: 'D) Ejetar o Setor 2 inteiro no vácuo do espaço!', effects: { foco: -3, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Extremo! Eliminou o vazamento e metade dos mantimentos da nave junto.' }
+          text: "Como voc\u00ea desenha a estrat\u00e9gia de consumo de ar para n\u00e3o ficar na m\u00e3o no meio do nada?",
+          choices: [
+            {
+              text: "Estipular uma cota di\u00e1ria milimetricamente contada e botar um rel\u00f3gio digital em cada cabine mostrando o ar restante.",
+              effects: {"foco": 3, "execucao": 0, "visao": 0, "adaptabilidade": -1},
+              feedback: "M\u00e3o de Ferro. Mant\u00e9m o consumo sob r\u00e9dea curta, mas deixa o ambiente com cara de quartel general."
+            },
+            {
+              text: "Criar um \"pulm\u00e3o verde\": conectar a Estufa de Alfaces Espaciais ao sistema para ir renovando o ar enquanto a tripula\u00e7\u00e3o dorme.",
+              effects: {"foco": 0, "execucao": 0, "visao": 3, "adaptabilidade": 1},
+              feedback: "Sacada Biol\u00f3gica. Usa a pr\u00f3pria natureza da nave para fabricar oxig\u00eanio de gra\u00e7a ao longo do voo."
+            },
+            {
+              text: "Fazer sess\u00f5es de yoga e medita\u00e7\u00e3o di\u00e1rias com a equipe para todo mundo aprender a respirar devagar e diminuir o ritmo.",
+              effects: {"foco": -1, "execucao": 0, "visao": 0, "adaptabilidade": 3},
+              feedback: "Zen Espacial. Reduz o estresse e o gasto de ar, mas basta um susto para o batimento disparar e estragar a m\u00e9dia."
+            },
+            {
+              text: "\"Na volta a gente compra\": decolar com os tanques cheios e resolver a cota de ar s\u00f3 quando o ponteiro entrar na reserva.",
+              effects: {"foco": -3, "execucao": 0, "visao": -2, "adaptabilidade": 0},
+              feedback: "Sem Ju\u00edzo. O ponteiro despencou no primeiro m\u00eas e gerou p\u00e2nico na cabine."
+            }
           ]
         },
         {
-          text: 'Questão 1.2: Fissura confirmada no duto. Como organiza o plano de reparo?', choices: [
-            { text: 'A) Mapear a sequência no manual e dividir tarefas antes da ação.', effects: { foco: 3, execucao: -1, visao: 0, adaptabilidade: 0 }, feedback: 'Estruturado. Garante segurança e evita erros, mas consome minutos vitais.' },
-            { text: 'B) Aplicar a resina de vedação direto no duto para fechar logo.', effects: { foco: -1, execucao: 3, visao: 0, adaptabilidade: 0 }, feedback: 'Ágil. Resolve na hora, mas sem plano pode cobrir partes indevidas.' },
-            { text: 'C) Usar fita flexível como selo temporário e planejar o conserto depois.', effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 2 }, feedback: 'Contenção. Ganha tempo de planejamento sem perder ar.' },
-            { text: 'D) Tapar o buraco com chiclete espacial e buscar tutoriais na internet.', effects: { foco: -2, execucao: 0, visao: -2, adaptabilidade: 0 }, feedback: 'Improviso ruim. O chiclete voou com a pressão e não há Wi-Fi aqui.' }
-          ]
-        },
-        {
-          text: 'Questão 1.3: Para reparar o duto com segurança, como gerenciar a eletricidade?', choices: [
-            { text: 'A) Desligar luzes e lazer, mantendo o suporte de vida ativo.', effects: { foco: 2, execucao: 0, visao: 2, adaptabilidade: 0 }, feedback: 'Priorização. Corta o supérfluo sem afetar o essencial.' },
-            { text: 'B) Desligar a chave geral e trabalhar no escuro total.', effects: { foco: -2, execucao: 2, visao: 0, adaptabilidade: 0 }, feedback: 'Precaução extrema. Zero risco elétrico, mas dificulta o conserto no breu.' },
-            { text: 'C) Usar o medidor e desligar apenas o fio exato da solda.', effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: -1 }, feedback: 'Cirúrgico. Mínimo impacto na nave, mas exige medições minuciosas.' },
-            { text: 'D) Redirecionar a carga do setor para as baterias reserva.', effects: { foco: 1, execucao: 0, visao: 0, adaptabilidade: 2 }, feedback: 'Uso inteligente. Mantém os sistemas ativos sem parar o trabalho.' }
-          ]
-        },
-        {
-          text: 'Questão 1.4: Tudo pronto para a execução. Qual o seu alinhamento final?', choices: [
-            { text: 'A) Fazer um briefing de 1 minuto repassando papéis e segurança.', effects: { foco: 3, execucao: 0, visao: 0, adaptabilidade: 1 }, feedback: 'Alinhamento. Garante clareza total e reduz o risco de acidentes.' },
-            { text: 'B) Dar o sinal de início imediato sem perder tempo.', effects: { foco: 0, execucao: 2, visao: -1, adaptabilidade: 0 }, feedback: 'Foco no tempo. Ganha segundos, mas amplia o risco de falha operacional.' },
-            { text: 'C) Rechecar os níveis de oxigênio para ver se o vazamento estabilizou.', effects: { foco: 0, execucao: 0, visao: 2, adaptabilidade: 0 }, feedback: 'Conferência. Confirma os indicadores antes de intervir fisicamente.' },
-            { text: 'D) Pedir uma dancinha para descontrair a equipe antes da solda.', effects: { foco: -2, execucao: 0, visao: 0, adaptabilidade: 2 }, feedback: 'Fora de hora. Relaxou o time, mas perderam dois minutos vitais de ar.' }
+          text: "A nave precisa perder 150 kg URGENTE para conseguir sair da gravidade da Terra. Como corta peso no sistema de ar?",
+          choices: [
+            {
+              text: "Trocar os canos pesados de ferro por dutos ocos de tit\u00e2nio, cortando peso sem perder a press\u00e3o.",
+              effects: {"foco": 1, "execucao": 3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Cir\u00fargico. Perde quilos pesados na estrutura mantendo o sistema seguro."
+            },
+            {
+              text: "Fazer um circuito fechado: transformar a umidade do suor da academia da nave em \u00e1gua para regar as plantas que geram o2",
+              effects: {"foco": 0, "execucao": 0, "visao": 3, "adaptabilidade": 1},
+              feedback: "Gambiarra Genial. Conecta o suor dos astronautas diretamente na f\u00e1brica de ar das plantas."
+            },
+            {
+              text: "Fechar a torneira do ar nas cabines durante a noite para a galera economizar enquanto dorme.",
+              effects: {"foco": 1, "execucao": 0, "visao": 0, "adaptabilidade": -2},
+              feedback: "Economia de Palito. Bate a meta de peso, mas a equipe acorda parecendo que foi atropelada por um trator."
+            },
+            {
+              text: "Desmontar a sirene de alarme e metade das luzes de emerg\u00eancia dos tanques de oxig\u00eanio.",
+              effects: {"foco": 0, "execucao": -2, "visao": -3, "adaptabilidade": 0},
+              feedback: "Tirando o Extintor. Ficou leve, mas voc\u00ea acabou de ficar cego para qualquer vazamento futuro."
+            }
           ]
         }
       ]
     },
     {
-      id: 'do', name: 'DO', subtitle: 'Caminhada no Espaço Profundo', icon: '💻', color: '#FF7043', bgGradient: 'linear-gradient(135deg, #1a0a00 0%, #4a1500 50%, #bf360c 100%)', bgImage: 'assets/bg_astro_do.png',
-      intro: 'Lado de fora da estação. Ancorado por um cabo, você deve trocar um módulo de comunicação antes que a nave entre na sombra orbital gelada.',
+      id: 'do',
+      name: "DO",
+      subtitle: "Executar",
+      icon: '🔨',
+      color: '#FF7043',
+      bgGradient: 'linear-gradient(135deg, #1a0a00 0%, #4a1500 50%, #bf360c 100%)',
+      bgImage: 'assets/bg_astro_do.png',
+      intro: "40\u00ba dia de voo. Um solavanco seco faz a nave balan\u00e7ar! CABUM! A conex\u00e3o do tubo de ar racha com a vibra\u00e7\u00e3o do motor. O apito de emerg\u00eancia ensurdece a cabine: o ar puro est\u00e1 vazando para o espa\u00e7o!",
       scenarios: [
         {
-          text: 'Questão 2.1: Como inicia o desacoplamento da peça danificada?', choices: [
-            { text: 'A) Conferir as travas do traje e soltar os parafusos na ordem do manual.', effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Padronizado. Garante segurança e evita empenar a estrutura.' },
-            { text: 'B) Usar a parafusadeira no torque máximo para retirar tudo rápido.', effects: { foco: 0, execucao: 3, visao: -2, adaptabilidade: 0 }, feedback: 'Força bruta. Ganha tempo, mas pode espanar as roscas do casco.' },
-            { text: 'C) Inspecionar os parafusos com a lanterna antes de aplicar força.', effects: { foco: 1, execucao: 0, visao: 2, adaptabilidade: 0 }, feedback: 'Inspeção. Identifica danos antes de estragar a ferramenta.' },
-            { text: 'D) Prender a peça antiga a um cabo auxiliar antes de soltar a trava final.', effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 2 }, feedback: 'Segurança. Impede que a peça solta vire lixo espacial perigoso.' }
+          text: "O ar t\u00e1 vazando r\u00e1pido e o painel t\u00e1 piscando em vermelho! Qual \u00e9 o seu movimento?",
+          choices: [
+            {
+              text: "Puxar o capacete, correr pro corredor e meter a fita de veda\u00e7\u00e3o de alt\u00edssima press\u00e3o direto na rachadura com as m\u00e3os!",
+              effects: {"foco": 0, "execucao": 3, "visao": -1, "adaptabilidade": 0},
+              feedback: "Instinto Puro. Estanca a sangria de ar na ra\u00e7a, mas nem parou para ver por que o cano quebrou."
+            },
+            {
+              text: "Correr pro painel principal, dar um golpe no bot\u00e3o de emerg\u00eancia e isolar a \u00e1rea rachada pelas travas digitais.",
+              effects: {"foco": 1, "execucao": 0, "visao": 3, "adaptabilidade": 0},
+              feedback: "Frio e Calculista. Salva o oxig\u00eanio da nave de forma r\u00e1pida e segura, sem se expor."
+            },
+            {
+              text: "Ligar os ventiladores da Estufa no m\u00e1ximo para tentar \"empurrar\" ar novo pra cabine enquanto pensa no que fazer.",
+              effects: {"foco": 0, "execucao": -2, "visao": 0, "adaptabilidade": 2},
+              feedback: "Improviso Furado. Soprou ar limpo para dentro, mas ele continuou saindo pelo mesmo buraco."
+            },
+            {
+              text: "Ficar olhando pro painel esperando o computador de bordo resolver o vazamento sozinho.",
+              effects: {"foco": -2, "execucao": -3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Travado pelo Medo. A demora quase fez todo mundo apagar por falta de ar."
+            }
           ]
         },
         {
-          text: 'Questão 2.2: O painel novo encaixou, mas o conector não trava. O que faz?', choices: [
-            { text: 'A) Examinar o interior do conector com a lanterna em busca de sujeira.', effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 1 }, feedback: 'Investigação. Descobre a causa antes de forçar o encaixe.' },
-            { text: 'B) Firmar os pés e empurrar o conector com força até travar.', effects: { foco: -1, execucao: 2, visao: 0, adaptabilidade: 0 }, feedback: 'Impulso. Pode funcionar, mas arrisca entortar os pinos internos.' },
-            { text: 'C) Aplicar lubrificante térmico na borda para facilitar o deslize.', effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 2 }, feedback: 'Prático. Contorna a rigidez provocada pelo frio extremo.' },
-            { text: 'D) Dar uma martelada com a chave inglesa para encaixar na marra.', effects: { foco: -2, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Dano crítico. O estalo que você ouviu foi a placa nova se partindo ao meio.' }
-          ]
-        },
-        {
-          text: 'Questão 2.3: A nave entrou na sombra orbital e ficou tudo breu. Qual sua atitude?', choices: [
-            { text: 'A) Ativar o aquecimento do traje, acender os refletores e continuar.', effects: { foco: 0, execucao: 3, visao: -1, adaptabilidade: 0 }, feedback: 'Foco na entrega. Mantém a tarefa em andamento apesar da mudança.' },
-            { text: 'B) Pausar 30 segundos, ajustar a visão e confirmar contato via rádio.', effects: { foco: 1, execucao: 0, visao: 2, adaptabilidade: 0 }, feedback: 'Segurança. Garante consciência do ambiente antes de prosseguir no escuro.' },
-            { text: 'C) Soltar o cabo de segurança para enxergar a peça por outro ângulo.', effects: { foco: -4, execucao: 0, visao: -4, adaptabilidade: 0 }, feedback: 'Deriva espacial. Sem cabo, você flutuou para longe e precisou de resgate.' },
-            { text: 'D) Reajustar a luz do capacete para focar direto na ponta das mãos.', effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 2 }, feedback: 'Ajuste fino. Otimiza a iluminação para manter a precisão manual.' }
-          ]
-        },
-        {
-          text: 'Questão 2.4: Módulo instalado com sucesso. Qual o último passo antes de retornar?', choices: [
-            { text: 'A) Testar o envio de dados e fixar a capa de proteção contra radiação.', effects: { foco: 3, execucao: 0, visao: 0, adaptabilidade: 1 }, feedback: 'Validação. Garante o funcionamento e a proteção antes de fechar.' },
-            { text: 'B) Prender todas as ferramentas na bolsa e checar se nada ficou solto.', effects: { foco: 1, execucao: 0, visao: 2, adaptabilidade: 0 }, feedback: 'Organização. Evita perda de material e colisões no casco.' },
-            { text: 'C) Tirar uma selfie com a Terra ao fundo e voltar para a cabine.', effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 0 }, feedback: 'Rápido. Celebra e agiliza o retorno, mas pula checagens finais.' },
-            { text: 'D) Aplicar um lacre extra nos suportes para conter vibrações.', effects: { foco: 0, execucao: 0, visao: 1, adaptabilidade: 2 }, feedback: 'Garantia. Adiciona proteção preventiva contra folgas futuras.' }
+          text: "Furo selado! S\u00f3 que a fuma\u00e7a preta de um curto-circuito queimou o filtro e tomou conta da cabine. Ningu\u00e9m consegue enxergar um palmo!",
+          choices: [
+            {
+              text: "Meter a m\u00e3o na caixa de ferramentas, puxar o manual e seguir o passo a passo da depura\u00e7\u00e3o de emerg\u00eancia.",
+              effects: {"foco": 3, "execucao": 1, "visao": 0, "adaptabilidade": 0},
+              feedback: "Pelas Regras. Limpa o ar da cabine certinho, exatamente como treinou no simulador."
+            },
+            {
+              text: "Sacar o filtro de \u00e1gua da estufa de plantas e encaixar na entrada de ar da cabine para usar o carv\u00e3o \u00famido como m\u00e1scara!",
+              effects: {"foco": 0, "execucao": 1, "visao": 0, "adaptabilidade": 3},
+              feedback: "Mestre da Gambiarra. Salva os pulm\u00f5es da equipe usando pe\u00e7as da horta espacial!"
+            },
+            {
+              text: "\"Abre a porta!\" \u2014 Ejetar 10% do ar da cabine pro v\u00e1cuo do espa\u00e7o para levar a fuma\u00e7a embora junto.",
+              effects: {"foco": 0, "execucao": 1, "visao": -2, "adaptabilidade": 0},
+              feedback: "Dr\u00e1stico. A fuma\u00e7a sumiu na hora, mas levou junto uma parte valiosa do oxig\u00eanio restante."
+            },
+            {
+              text: "Distribuir panos molhados pra galera segurar no nariz e mandar todo mundo \"esperar a fuma\u00e7a baixar\".",
+              effects: {"foco": 0, "execucao": -2, "visao": 0, "adaptabilidade": -3},
+              feedback: "P\u00e9ssima Ideia. A fuma\u00e7a impregnou no sistema e travou as turbinas do ar-condicionado."
+            }
           ]
         }
       ]
     },
     {
-      id: 'check', name: 'CHECK', subtitle: 'Análise dos Indicadores', icon: '🔍', color: '#AB47BC', bgGradient: 'linear-gradient(135deg, #1a0033 0%, #4a0072 50%, #7b1fa2 100%)', bgImage: 'assets/bg_astro_check.png',
-      intro: 'De volta à cabine. O painel novo funciona, mas os gráficos mostram consumo 25% maior de bateria. Há um gasto invisível ocorrendo.',
+      id: 'check',
+      name: "CHECK",
+      subtitle: "Checar / Analisar",
+      icon: '🔍',
+      color: '#AB47BC',
+      bgGradient: 'linear-gradient(135deg, #1a0033 0%, #4a0072 50%, #7b1fa2 100%)',
+      bgImage: 'assets/bg_astro_check.png',
+      intro: "A poeira baixou, o apito parou e a nave est\u00e1 em sil\u00eancio. A crise passou, mas a pergunta que n\u00e3o quer calar \u00e9: com o ar que sobrou depois do vazamento, a gente consegue chegar vivos em Marte?",
       scenarios: [
         {
-          text: 'Questão 3.1: Como investiga esse pico de consumo de energia?', choices: [
-            { text: 'A) Cruzar o horário do pico com a oscilação de temperatura externa.', effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 1 }, feedback: 'Cruzamento de dados. Revela correlações invisíveis entre ambiente e sistema.' },
-            { text: 'B) Comparar o gráfico atual com as margens permitidas no manual.', effects: { foco: 2, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Padrão. Confirma se o desvio está dentro dos limites aceitáveis.' },
-            { text: 'C) Pergunta ao colega se sentiu resistência física ao encaixar o cabo.', effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 2 }, feedback: 'Fator humano. Busca detalhes práticos que o sensor não registrou.' },
-            { text: 'D) Desligar as telas, acender velas e fingir que nada aconteceu.', effects: { foco: 0, execucao: 0, visao: -3, adaptabilidade: -3 }, feedback: 'Perigoso. As velas gastaram o oxigênio e acionaram os alarmes de fogo.' }
+          text: "O visor marca que sobrou s\u00f3 60% do oxig\u00eanio. Como voc\u00ea encara esse n\u00famero?",
+          choices: [
+            {
+              text: "Montar uma planilha viva no painel: cruzar a respira\u00e7\u00e3o de cada um com os dados de fotoss\u00edntese di\u00e1ria das alfaces da estufa.",
+              effects: {"foco": 1, "execucao": 0, "visao": 3, "adaptabilidade": 0},
+              feedback: "Mente Cient\u00edfica. Sabe exatamente a gota de ar que cada astronauta pode gastar por hora."
+            },
+            {
+              text: "Ligar os refletores roxos da Estufa no modo turbo para fazer as plantas trabalharem em dobro e repor o ar perdido.",
+              effects: {"foco": -1, "execucao": 0, "visao": 0, "adaptabilidade": 3},
+              feedback: "Ajuste Verde. P\u00f5e a natureza para ralar o triplo e cobrir a bagun\u00e7a do vazamento."
+            },
+            {
+              text: "Trancar os controles do ar na marra e avisar: \"A partir de hoje, ar condicionado s\u00f3 no n\u00edvel m\u00ednimo at\u00e9 pousar!\"",
+              effects: {"foco": 2, "execucao": 0, "visao": 0, "adaptabilidade": -2},
+              feedback: "Torneira Fechada. O ar vai durar at\u00e9 Marte, mas a equipe t\u00e1 trabalhando no limite do cansa\u00e7o."
+            },
+            {
+              text: "Desligar a tela do painel de ar e falar: \"Galera, n\u00e3o olhem pro ponteiro pra n\u00e3o ficar ansiosos\".",
+              effects: {"foco": -2, "execucao": 0, "visao": -3, "adaptabilidade": 0},
+              feedback: "Modo Avestruz. Escondeu a cabe\u00e7a no buraco e n\u00e3o viu que o ar continuava caindo aos poucos."
+            }
           ]
         },
         {
-          text: 'Questão 3.2: Causa achada: folga no cabo fez o aquecedor trabalhar em dobro. E agora?', choices: [
-            { text: 'A) Registrar a relação: aperto apressado gerou folga e alto consumo.', effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 1 }, feedback: 'Causa-raiz. Identifica a origem exata do problema para evitar repetição.' },
-            { text: 'B) Ajustar o software para mandar carga extra nas fases de sombra.', effects: { foco: 0, execucao: 0, visao: -1, adaptabilidade: 2 }, feedback: 'Paliativo. Trata o sintoma (falta de carga), mas mantém a folga no cabo.' },
-            { text: 'C) Calcular quantos dias a bateria dura mantendo esse nível de consumo.', effects: { foco: 2, execucao: 0, visao: 0, adaptabilidade: 0 }, feedback: 'Impacto. Avalia a gravidade no tempo para definir a urgência.' },
-            { text: 'D) Deixar em observação e reavaliar os sensores em 48 horas.', effects: { foco: 0, execucao: 1, visao: 1, adaptabilidade: 0 }, feedback: 'Lento. Coleta mais dados, mas mantém o desperdício ativo por dois dias.' }
-          ]
-        },
-        {
-          text: 'Questão 3.3: Como transmitir esse parecer técnico para a base na Terra?', choices: [
-            { text: 'A) Enviar relatório estruturado: evento, dados, causa e solução.', effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 }, feedback: 'Clareza. Fornece informações precisas para tomada de decisão em solo.' },
-            { text: 'B) Mudar o status para "Operacional com Observações" no sistema.', effects: { foco: -1, execucao: 2, visao: 0, adaptabilidade: 0 }, feedback: 'Resumido. Rápido, mas deixa a base sem os detalhes da falha.' },
-            { text: 'C) Enviar nota sugerindo alteração no design da trava para novos lotes.', effects: { foco: 0, execucao: 0, visao: 1, adaptabilidade: 2 }, feedback: 'Melhoria. Foca na origem industrial para corrigir projetos futuros.' },
-            { text: 'D) Culpar um alienígena invisível por ter mexido no conector.', effects: { foco: -3, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Invenção. A base ignorou o relato e agendou um exame psiquiátrico para você.' }
-          ]
-        },
-        {
-          text: 'Questão 3.4: Como expande essa verificação para outros setores da nave?', choices: [
-            { text: 'A) Vistoriar conectores de setores vizinhos em busca de folgas.', effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 }, feedback: 'Prevenção. Aplica a lição em outros pontos para proteger a nave toda.' },
-            { text: 'B) Revisar a agenda de manutenção da semana para manter as checagens.', effects: { foco: 2, execucao: 0, visao: 0, adaptabilidade: 0 }, feedback: 'Rotina. Garante o cumprimento estrito do calendário de inspeção.' },
-            { text: 'C) Explicar a descoberta ao time no almoço para alertar sobre os encaixes.', effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 2 }, feedback: 'Disseminação. Conscientiza a equipe de forma simples e direta.' },
-            { text: 'D) Arquivar a análise na pasta do sistema e ir para a próxima tarefa.', effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 0 }, feedback: 'Encerramento. Salva o histórico, mas perde a chance de agir preventivamente.' }
+          text: "O scanner avisa que o filtro do ar ficou cheio de fuligem da fuma\u00e7a e t\u00e1 entupindo a cada 8 horas. Como descobre o problema?",
+          choices: [
+            {
+              text: "Raspar uma amostra da sujeira e colocar no microsc\u00f3pio para ver se \u00e9 cinza de metal queimado ou resina de planta.",
+              effects: {"foco": 0, "execucao": 1, "visao": 3, "adaptabilidade": 0},
+              feedback: "Investigador. Descobre a causa exata e aplica o produto certo pra limpar sem estragar a pe\u00e7a."
+            },
+            {
+              text: "Inverter a polaridade dos ventiladores para dar um \"assopro reverso\" e expelir a sujeira do filtro sem desmontar nada!",
+              effects: {"foco": 1, "execucao": 0, "visao": 0, "adaptabilidade": 3},
+              feedback: "Engenhosidade. Limpa o sistema usando a pr\u00f3pria press\u00e3o do ar a seu favor."
+            },
+            {
+              text: "Botar o copiloto para limpar o filtro manualmente com uma escovinha de dente a cada troca de turno.",
+              effects: {"foco": 0, "execucao": 1, "visao": 0, "adaptabilidade": -2},
+              feedback: "Trabalho Bra\u00e7al. Resolve o problema do filtro, mas deixa o coitado do copiloto mo\u00eddo de cansa\u00e7o."
+            },
+            {
+              text: "Arrancar o filtro sujo de vez e deixar o ar circular sem filtro nenhum pela nave.",
+              effects: {"foco": 0, "execucao": -3, "visao": -2, "adaptabilidade": 0},
+              feedback: "Poeira no Motor. A poeira solta entrou nas engrenagens e queimou o ar-condicionado central."
+            }
           ]
         }
       ]
     },
     {
-      id: 'act', name: 'ACT', subtitle: 'Padronizando o Aprendizado', icon: '⚙️', color: '#EF5350', bgGradient: 'linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #c62828 100%)', bgImage: 'assets/bg_astro_act.png',
-      intro: 'A Agência Espacial solicitou a criação de um novo padrão oficial para evitar que conectores fiquem com folga nas próximas missões.',
+      id: 'act',
+      name: "ACT",
+      subtitle: "Padronizar e Agir",
+      icon: '🔄',
+      color: '#EF5350',
+      bgGradient: 'linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #c62828 100%)',
+      bgImage: 'assets/bg_astro_act.png',
+      intro: "O Planeta Vermelho surge enorme na janela! A nave aterrissou. Com os ajustes da Fase 3, o ar deu para chegar. Agora voc\u00ea precisa conectar o sistema de ar da nave direto na nova C\u00fapula de Marte e criar a regra definitiva de uso.",
       scenarios: [
         {
-          text: 'Questão 4.1: Qual regra definitiva você cria para a montagem?', choices: [
-            { text: 'A) Atualizar o manual com checagem obrigatória de alinhamento antes da trava.', effects: { foco: 1, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Documentação. Formaliza a nova regra na instrução oficial de trabalho.' },
-            { text: 'B) Criar um gabarito em 3D que sirva de trava física antierro (Poka-Yoke).', effects: { foco: -1, execucao: 1, visao: 0, adaptabilidade: 3 }, feedback: 'À prova de erro. Cria uma trava física que impede a montagem incorreta.' },
-            { text: 'C) Inserir um alerta digital no visor do capacete lembrando de checar o aperto.', effects: { foco: 2, execucao: 1, visao: 0, adaptabilidade: 0 }, feedback: 'Aviso. Usa a tecnologia para orientar o operador no momento certo.' },
-            { text: 'D) Proibir ferramentas e fazer as manutenções "na base da torcida".', effects: { foco: -3, execucao: 0, visao: 0, adaptabilidade: -4 }, feedback: 'Sem cabimento. Otimismo não impede peças mecânicas de se soltarem.' }
+          text: "Qual \u00e9 o seu plano para juntar o ar da nave com o ar da nova C\u00fapula em solo marciano?",
+          choices: [
+            {
+              text: "Puxar a prancheta, seguir o manual de conex\u00e3o de 10 passos e testar a press\u00e3o 3 vezes antes de girar a manivela.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Procedimento Blindado. Transi\u00e7\u00e3o perfeita. Nem uma mol\u00e9cula de oxig\u00eanio escapou pro nada."
+            },
+            {
+              text: "Encaixar os tubos da Estufa Biom\u00f3vel direto na ventila\u00e7\u00e3o da C\u00fapula, fazendo a base nascer j\u00e1 produzindo ar puro!",
+              effects: {"foco": 0, "execucao": 3, "visao": 0, "adaptabilidade": 1},
+              feedback: "Integra\u00e7\u00e3o Total. Transforma a horta da nave no pulm\u00e3o verde da nova col\u00f4nia marciana."
+            },
+            {
+              text: "\"Vamos logo com isso!\": girar a v\u00e1lvula principal rapidamente para desembarcar as malas mais r\u00e1pido.",
+              effects: {"foco": -2, "execucao": 0, "visao": 0, "adaptabilidade": 1},
+              feedback: "Apressado. Economizou tempo, mas a press\u00e3o deu um tranco e fez o painel da c\u00fapula apitar."
+            },
+            {
+              text: "Mudar a ordem de encaixe dos tubos na hora do pouso sem avisar ningu\u00e9m da equipe.",
+              effects: {"foco": -3, "execucao": -3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Confus\u00e3o Geral. Um duto mal travado fez o oxig\u00eanio da c\u00fapula vazar na poeira de Marte."
+            }
           ]
         },
         {
-          text: 'Questão 4.2: Um veterano reclama que o novo padrão leva 3 minutos a mais. O que faz?', choices: [
-            { text: 'A) Mostrar dados de como 3 minutos evitam semanas de estresse na bateria.', effects: { foco: 0, execucao: -1, visao: 3, adaptabilidade: 0 }, feedback: 'Fatos. Convence demonstrando o ganho de segurança versus o tempo investido.' },
-            { text: 'B) Propor um teste no simulador comparando o método antigo e o novo.', effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 2 }, feedback: 'Prática. Envolve o crítico no teste para que ele comprove a eficácia.' },
-            { text: 'C) Redesenhar a checagem usando trava rápida para durar só 30 segundos.', effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 2 }, feedback: 'Otimização. Mantém o processo seguro sem perdas de eficiência.' },
-            { text: 'D) Desafiar o veterano para um braço de ferro: quem vencer decide a regra.', effects: { foco: -2, execucao: 0, visao: -2, adaptabilidade: 0 }, feedback: 'Inútil. Força física não altera o funcionamento elétrico dos conectores.' }
-          ]
-        },
-        {
-          text: 'Questão 4.3: Como avaliar se o novo padrão está funcionando na rotina?', choices: [
-            { text: 'A) Acompanhar a próxima manutenção de um colega e pedir feedback.', effects: { foco: 0, execucao: 0, visao: 1, adaptabilidade: 3 }, feedback: 'Acompanhamento. Observa a execução prática e corrige dificuldades do time.' },
-            { text: 'B) Monitorar o consumo de energia nas semanas seguintes para checar estabilidade.', effects: { foco: 1, execucao: 0, visao: 2, adaptabilidade: 0 }, feedback: 'Métricas. Mede a consistência dos resultados ao longo do tempo.' },
-            { text: 'C) Registrar a data e hora de início do novo padrão no diário de bordo.', effects: { foco: 2, execucao: 0, visao: 0, adaptabilidade: 0 }, feedback: 'Registro. Mantém o histórico exato de quando o processo mudou.' },
-            { text: 'D) Fazer uma reunião rápida para ouvir ideias de ajuste da instrução.', effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 1 }, feedback: 'Melhoria. Coleta sugestões rápidas para refinar a instrução.' }
-          ]
-        },
-        {
-          text: 'Questão 4.4: Padrão consolidado! O que faz com os resultados obtidos?', choices: [
-            { text: 'A) Enviar o caso para a agência corrigir os projetos das próximas naves.', effects: { foco: 1, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Evolução. Garante que o aprendizado em órbita melhore a fabricação na Terra.' },
-            { text: 'B) Organizar e arquivar os relatórios na pasta técnica para equipes futuras.', effects: { foco: 2, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Conhecimento. Facilita a consulta e a transição para próximos astronautas.' },
-            { text: 'C) Agradecer o time pelo empenho e comemorar o sucesso do novo método.', effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 1 }, feedback: 'Reconhecimento. Motiva a equipe e reforça o valor do trabalho bem-feito.' },
-            { text: 'D) Publicar o caso na revista da agência como exemplo de resolução de falhas.', effects: { foco: 0, execucao: 0, visao: 2, adaptabilidade: 0 }, feedback: 'Exemplo. Inspira outros setores a aplicarem a cultura de melhoria.' }
+          text: "Pouso conclu\u00eddo e base acesa! Como voc\u00ea registra essa vit\u00f3ria para as futuras col\u00f4nias?",
+          choices: [
+            {
+              text: "Escrever o novo \"Manual de Sobreviv\u00eancia de Ar\" com tudo o que deu certo na viagem e mandar via r\u00e1dio para a Terra.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Legado Oficial. Seu guia virou a b\u00edblia de instru\u00e7\u00e3o para todos os novos astronautas."
+            },
+            {
+              text: "Transformar os tanques de ar vazios da nave em dep\u00f3sitos de emerg\u00eancia fixos acoplados ao lado da C\u00fapula.",
+              effects: {"foco": 0, "execucao": 3, "visao": 0, "adaptabilidade": 1},
+              feedback: "Reaproveitamento. Transforma lata velha em seguran\u00e7a extra para a col\u00f4nia no solo."
+            },
+            {
+              text: "Contar como foi a solu\u00e7\u00e3o do vazamento numa conversa informal com a equipe durante o jantar de comemora\u00e7\u00e3o.",
+              effects: {"foco": -2, "execucao": 0, "visao": 0, "adaptabilidade": 1},
+              feedback: "Papo de Bar. A ideia foi legal, mas ningu\u00e9m anotou os detalhes t\u00e9cnicos no relat\u00f3rio."
+            },
+            {
+              text: "Desligar o r\u00e1dio e n\u00e3o anotar nada no di\u00e1rio de bordo para ir direto descansar na base nova.",
+              effects: {"foco": -3, "execucao": 0, "visao": -2, "adaptabilidade": 0},
+              feedback: "Sem Registro. Ningu\u00e9m aprendeu com os erros e acertos da sua viagem."
+            }
           ]
         }
       ]
     },
     {
-      id: 'kaizen', name: 'KAIZEN', subtitle: 'Comandante da Missão Marte', icon: '🌟', color: '#66BB6A', bgGradient: 'linear-gradient(135deg, #002200 0%, #1b5e20 50%, #388e3c 100%)', bgImage: 'assets/bg_astro_kaizen.png',
-      intro: 'Anos depois, você é o Comandante da Missão a Marte. A jornada durará anos no espaço e a cultura da Melhoria Contínua (Kaizen) é sua principal garantia de sobrevivência.',
+      id: 'kaizen',
+      name: "KAIZEN",
+      subtitle: "Melhorar Continuamente",
+      icon: '🌿',
+      color: '#66BB6A',
+      bgGradient: 'linear-gradient(135deg, #002200 0%, #1b5e20 50%, #388e3c 100%)',
+      bgImage: 'assets/bg_astro_kaizen.png',
+      intro: "A base est\u00e1 firme e o ar t\u00e1 gostoso de respirar. O ciclo acabou com sucesso! Mas um verdadeiro Comandante olha para o cano que quebrou na Fase 2 e pensa: \"O que vou mudar no projeto da pr\u00f3xima nave (Ares-V) para que esse cano NUNCA MAIS quebre?\"",
       scenarios: [
         {
-          text: 'Questão 5.1: No projeto da nova nave, como usa sua bagagem técnica?', choices: [
-            { text: 'A) Revisar falhas passadas e projetar travas auto-alinháveis com engenheiros.', effects: { foco: 1, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Engenharia. Usa erros antigos para projetar sistemas mais seguros.' },
-            { text: 'B) Testar pessoalmente as ferramentas do traje no simulador antes de aprovar.', effects: { foco: 0, execucao: 2, visao: 1, adaptabilidade: 0 }, feedback: 'Prática. Garante a ergonomia e funcionalidade das ferramentas.' },
-            { text: 'C) Exigir um cronograma estrito de testes de estresse antes da montagem.', effects: { foco: 2, execucao: -1, visao: 0, adaptabilidade: 0 }, feedback: 'Rigor. Eleva o nível de exigência dos materiais ao máximo.' },
-            { text: 'D) Analisar dados de baterias em frio extremo para prever o uso em Marte.', effects: { foco: 1, execucao: 0, visao: 2, adaptabilidade: 0 }, feedback: 'Previsão. Usa dados para antecipar o comportamento dos sistemas no destino.' }
+          text: "O tubo quebrou por causa da trepida\u00e7\u00e3o do motor. Como voc\u00ea aplica o Kaizen nesse peda\u00e7o da nave?",
+          choices: [
+            {
+              text: "Inventar um conector magn\u00e9tico sanfonado que balan\u00e7a junto com o motor sem nunca rachar a estrutura!",
+              effects: {"foco": 0, "execucao": 0, "visao": 1, "adaptabilidade": 3},
+              feedback: "Evolu\u00e7\u00e3o de Engenharia! Voc\u00ea eliminou a falha de projeto! A pr\u00f3xima nave vai ser imune a esse vazamento."
+            },
+            {
+              text: "Colocar no checklist do piloto: \"A cada 48 horas, olhar com o microsc\u00f3pio se o cano t\u00e1 trincando\".",
+              effects: {"foco": 3, "execucao": 1, "visao": 0, "adaptabilidade": 0},
+              feedback: "Melhoria na Rotina. Cria uma preven\u00e7\u00e3o constante para pegar o problema logo no comecinho."
+            },
+            {
+              text: "Trocar o cano quebrado por um novo rigorosamente igual e torcer para o motor trepidar menos na pr\u00f3xima vez.",
+              effects: {"foco": 0, "execucao": 1, "visao": 0, "adaptabilidade": -2},
+              feedback: "Mesma Coisa. Trocou a pe\u00e7a, mas a falha de projeto continua l\u00e1 esperando a pr\u00f3xima viagem."
+            },
+            {
+              text: "Dar uma bronca na f\u00e1brica que fez o cano e dizer que foi apenas \"um azar que n\u00e3o vai se repetir\".",
+              effects: {"foco": -2, "execucao": 0, "visao": -3, "adaptabilidade": 0},
+              feedback: "Teimosia. N\u00e3o mudou nem a pe\u00e7a nem o processo. A nave Ares-V vai passar pelo mesmo sufoco."
+            }
           ]
         },
         {
-          text: 'Questão 5.2: Um novato erra a leitura de pressão no simulador. Como reage?', choices: [
-            { text: 'A) Pausar, analisar os dados com ele e pedir que proponha a solução.', effects: { foco: 1, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Educador. Transforma o erro em aprendizado sem punição (Espírito Kaizen).' },
-            { text: 'B) Demonstrar a correção e mandar ele repetir até memorizar.', effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: -1 }, feedback: 'Repetição. Rápido, mas gera dependência da sua instrução.' },
-            { text: 'C) Redesenhar a tela deixando o aviso de pressão mais visível.', effects: { foco: 2, execucao: 0, visao: 0, adaptabilidade: 1 }, feedback: 'Ergonomia. Ajusta a interface para evitar a falha humana.' },
-            { text: 'D) Trancar o novato fora da nave sem traje por 5 minutos para aprender.', effects: { foco: -5, execucao: -5, visao: -5, adaptabilidade: -5 }, feedback: 'Conduta abusiva. Você foi demitido e a missão a Marte foi cancelada.' }
-          ]
-        },
-        {
-          text: 'Questão 5.3: A agência apresenta uma IA para prever falhas. Como implementá-la?', choices: [
-            { text: 'A) Usar a IA em modo assistente nos primeiros meses para validar dados.', effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 1 }, feedback: 'Prudência. Valida o sistema na prática antes de dar autonomia total.' },
-            { text: 'B) Integrar a IA no painel para automatizar correções e poupar tempo.', effects: { foco: 0, execucao: 2, visao: -2, adaptabilidade: 0 }, feedback: 'Risco. Delega o controle total à máquina sem testes prévios.' },
-            { text: 'C) Analisar o código-fonte da IA para entender os parâmetros de análise.', effects: { foco: 2, execucao: -1, visao: 0, adaptabilidade: 0 }, feedback: 'Técnico. Estuda a lógica interna antes de aceitar o sistema.' },
-            { text: 'D) Criar um diário para anotar acertos e erros da IA e mandar aos programadores.', effects: { foco: 0, execucao: 0, visao: 1, adaptabilidade: 2 }, feedback: 'Ajuste fino. Fornece dados reais para aperfeiçoar o software.' }
-          ]
-        },
-        {
-          text: 'Questão 5.4: Foguete na plataforma rumo a Marte. Qual seu discurso final?', choices: [
-            { text: 'A) "Nossa força é aprender com os passos e evoluir juntos todos os dias."', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Kaizen. Inspira resiliência, foco no aprendizado e evolução contínua.' },
-            { text: 'B) "Treinamos duro, conhecemos o manual e temos um plano. Vamos executar!"', effects: { foco: 2, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Planejamento. Passa segurança focada no rigor e nos processos.' },
-            { text: 'C) "A hora chegou! Vamos colocar energia na prática e fazer história!"', effects: { foco: -1, execucao: 2, visao: 0, adaptabilidade: 0 }, feedback: 'Ação. Motiva o time através do entusiasmo e da iniciativa.' },
-            { text: 'D) "Se chacoalhar muito, apertem botões aleatórios e seja o que Deus quiser!"', effects: { foco: -3, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Desespero. A frase gerou pânico e a decolagem foi cancelada.' }
+          text: "Qual \u00e9 a sua mensagem de encerramento na transmiss\u00e3o ao vivo para a Academia de Astronautas da Terra?",
+          choices: [
+            {
+              text: "\"Quase morremos por uma falha no cano. Mas aprendemos com o erro, mudamos a engenharia e hoje a humanidade tem uma nave 100% mais segura!\"",
+              effects: {"foco": 0, "execucao": 0, "visao": 1, "adaptabilidade": 3},
+              feedback: "Mestre da Evolu\u00e7\u00e3o! Mostra que errar faz parte, mas n\u00e3o evoluir com o erro \u00e9 inaceit\u00e1vel."
+            },
+            {
+              text: "\"Pegamos todos os perrengues do ar e criamos uma simula\u00e7\u00e3o ultra-realista para os novatos treinarem no simulador.\"",
+              effects: {"foco": 3, "execucao": 1, "visao": 0, "adaptabilidade": 0},
+              feedback: "Escola de Voo. Transforma a sua experi\u00eancia real no melhor treino da hist\u00f3ria da ag\u00eancia."
+            },
+            {
+              text: "\"Chegamos vivos, ent\u00e3o o treinamento antigo continua bom. N\u00e3o precisa mudar nada nos manuais.\"",
+              effects: {"foco": 1, "execucao": 0, "visao": 0, "adaptabilidade": -2},
+              feedback: "Zona de Conforto. Perdeu a oportunidade de ouro de deixar a pr\u00f3xima miss\u00e3o muito melhor."
+            },
+            {
+              text: "\"O espa\u00e7o \u00e9 perigoso demais. Se um cano quebrar, s\u00f3 resta rezar pra ter a mesma sorte que a gente teve.\"",
+              effects: {"foco": 0, "execucao": -2, "visao": -3, "adaptabilidade": 0},
+              feedback: "Sorte n\u00e3o \u00e9 M\u00e9todo. Ignorou a ci\u00eancia da melhoria cont\u00ednua e deixou o futuro nas m\u00e3os do acaso."
+            }
           ]
         }
       ]
@@ -594,191 +785,311 @@ const CAREER_PHASES = {
   ],
   detetive: [
     {
-      id: 'plan', name: 'PLAN', subtitle: 'O Planejamento e Isolamento da Cena', icon: '📋', color: '#4FC3F7', bgGradient: 'linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #283593 100%)', bgImage: 'assets/bg_detetive.png',
-      intro: 'O escritório está em caos: marcas no chão, vidros quebrados e a porta arrombada. Os suspeitos começam a transitar pela casa. Você precisa planejar como conter a cena e traçar a estratégia de investigação.',
+      id: 'plan',
+      name: "PLAN",
+      subtitle: "Planejar",
+      icon: '📋',
+      color: '#4FC3F7',
+      bgGradient: 'linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #283593 100%)',
+      bgImage: 'assets/bg_detetive.png',
+      intro: "21h30. Sob uma tempestade severa e luzes vacilantes, o alarme do escrit\u00f3rio dispara no segundo andar da Mans\u00e3o Blackwood. Na sala, Arthur Blackwood jaz desacordado com um ferimento na cabe\u00e7a, o cofre est\u00e1 escancarado sem o contrato e a porta permaneceu trancada por dentro. Entre cacos de vidro e o cheiro forte de u\u00edsque, os tr\u00eas h\u00f3spedes gritam desorientados no corredor.",
       scenarios: [
         {
-          text: 'Questão 1.1: O alarme da mansão ainda toca e o caos reina. Qual sua atitude imediata?', choices: [
-            { text: 'A) Isolar a sala e traçar o plano de coleta antes de agir.', effects: { foco: 3, execucao: -1, visao: 1, adaptabilidade: 0 }, feedback: 'Preservação perfeita. Organiza o fluxo e impede contaminação das provas.' },
-            { text: 'B) Ir direto ao cofre arrombado buscar marcas recentes.', effects: { foco: -1, execucao: 3, visao: 0, adaptabilidade: 0 }, feedback: 'Ação rápida. Coleta dados de imediato, mas arrisca pisar em pegadas no caminho.' },
-            { text: 'C) Mapear a posição dos suspeitos e observar comportamentos.', effects: { foco: 0, execucao: 0, visao: 1, adaptabilidade: 2 }, feedback: 'Análise humana. Captura reações espontâneas antes que inventem desculpas.' },
-            { text: 'D) Gritar com todos e trancar a família no sótão.', effects: { foco: -3, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Caos total. Gerou pânico sem obter uma única pista válida.' }
+          text: "Como agir imediatamente diante da confus\u00e3o de pessoas no corredor?",
+          choices: [
+            {
+              text: "Esticar a fita de isolamento na porta, dar um grito de \"Todo mundo parado!\" e desenhar as vias de acesso no bloco antes de pisar na sala.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Preserva\u00e7\u00e3o Blindada. Congela a cena no tempo e impede que pegadas valiosas sejam apagadas."
+            },
+            {
+              text: "Salvar o que d\u00e1! Dar um salto por cima do vidro estilha\u00e7ado e ir direto ao painel do cofre ver marcas recentes.",
+              effects: {"foco": -1, "execucao": 3, "visao": 0, "adaptabilidade": 0},
+              feedback: "A\u00e7\u00e3o Impulsiva. Chega r\u00e1pido ao cofre, mas a sola do seu sapato esmagou uma pista no tapete."
+            },
+            {
+              text: "Observar a movimenta\u00e7\u00e3o no corredor para mapear rapidamente a din\u00e2mica do ambiente antes de intervir.",
+              effects: {"foco": 0, "execucao": 0, "visao": 1, "adaptabilidade": 2},
+              feedback: "Leitura de Ambiente. Adapta a estrat\u00e9gia de conten\u00e7\u00e3o ao comportamento inicial do grupo."
+            },
+            {
+              text: "Entrar em p\u00e2nico junto, passar esparadrapo na boca de todos e trancar a fam\u00edlia inteira no s\u00f3t\u00e3o escuro.",
+              effects: {"foco": -3, "execucao": 0, "visao": -3, "adaptabilidade": 0},
+              feedback: "Caos Absoluto. Gerou p\u00e2nico na casa, violou direitos e n\u00e3o conseguiu uma \u00fanica prova."
+            }
           ]
         },
         {
-          text: 'Questão 1.2: A porta estava trancada por dentro. Como planeja investigar o mecanismo da tranca?', choices: [
-            { text: 'A) Mapear a fechadura com lupa buscando marcas de ferramentas.', effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 }, feedback: 'Análise detalhada. Descobre se houve truque mecânico pelo lado de fora.' },
-            { text: 'B) Testar a chave nas portas vizinhas para comparar padrões.', effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 1 }, feedback: 'Checagem prática. Entende a arquitetura de trancamento da casa rapidamente.' },
-            { text: 'C) Perguntar ao mordomo quem tinha acesso às cópias.', effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 2 }, feedback: 'Rastreio de rotina. Mapeia o controle de acesso humano às chaves.' },
-            { text: 'D) Chutar a porta ao lado para testar a resistência.', effects: { foco: -2, execucao: 0, visao: -2, adaptabilidade: 0 }, feedback: 'Vandalismo. Destruiu patrimônio e não descobriu nada.' }
-          ]
-        },
-        {
-          text: 'Questão 1.3: Há uma taça de vinho caída com resíduo suspeito. Como planeja a coleta?', choices: [
-            { text: 'A) Fotografar, selar em frasco estéril e etiquetar.', effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Cadeia de custódia. Prova irrefutável e aceita legalmente.' },
-            { text: 'B) Provar uma gota com o dedo para identificar o gosto.', effects: { foco: -3, execucao: 0, visao: -4, adaptabilidade: 0 }, feedback: 'Imprudência! Era um sedativo forte e você apagou por 4 horas.' },
-            { text: 'C) Checar na adega qual garrafa foi aberta.', effects: { foco: 0, execucao: 1, visao: 2, adaptabilidade: 0 }, feedback: 'Cruzamento rápido. Confirma se o vinho veio da casa ou de fora.' },
-            { text: 'D) Guardar a taça no bolso para analisar depois.', effects: { foco: -2, execucao: 1, visao: 0, adaptabilidade: 0 }, feedback: 'Contaminação. A taça quebrou no bolso enquanto você andava.' }
-          ]
-        },
-        {
-          text: 'Questão 1.4: Para finalizar o plano de contenção, como organizar a equipe antes de iniciar os trabalhos?', choices: [
-            { text: 'A) Dividir papéis claros: um nos depoimentos, outro na forense.', effects: { foco: 3, execucao: 0, visao: 0, adaptabilidade: 1 }, feedback: 'Divisão eficiente. Evita sobreposição de tarefas e acelera o processo.' },
-            { text: 'B) Mandar todos entrarem na sala ao mesmo tempo e procurar pistas.', effects: { foco: 0, execucao: 2, visao: -2, adaptabilidade: 0 }, feedback: 'Desorganização. Agiliza a busca, mas gera contaminação cruzada.' },
-            { text: 'C) Definir o responsável por monitorar as saídas da mansão.', effects: { foco: 0, execucao: 1, visao: 2, adaptabilidade: 0 }, feedback: 'Contenção de risco. Impede a fuga de qualquer suspeito.' },
-            { text: 'D) Mandar a equipe fazer uma pausa para o café da tora.', effects: { foco: -2, execucao: 0, visao: 0, adaptabilidade: 2 }, feedback: 'Atraso. Relaxou o time, mas o criminoso ganhou tempo precioso.' }
+          text: "A porta do escrit\u00f3rio estava trancada por DENTRO. Como investigar o mecanismo da tranca?",
+          choices: [
+            {
+              text: "Sacar a lupa, ajoelhar e procurar no olho da fechadura por fiapos de linha, arranh\u00f5es de arame ou marcas de metal rec\u00e9m-feitas.",
+              effects: {"foco": 1, "execucao": 0, "visao": 3, "adaptabilidade": 0},
+              feedback: "Detetive Cl\u00e1ssico. Procura a assinatura mec\u00e2nica de um truque de trancamento por fora."
+            },
+            {
+              text: "Correr pelo corredor testando a chave do escrit\u00f3rio nas portas dos quartos para ver se a casa usa um sistema de chaves-mestre.",
+              effects: {"foco": 0, "execucao": 3, "visao": 0, "adaptabilidade": 1},
+              feedback: "Atalho Pr\u00e1tico. Entende a arquitetura das trancas da mans\u00e3o em quest\u00e3o de minutos."
+            },
+            {
+              text: "Inspecionar o desgaste das chaves sobressalentes no quadro geral para identificar c\u00f3pias recentes.",
+              effects: {"foco": 2, "execucao": 1, "visao": 0, "adaptabilidade": 0},
+              feedback: "Checagem Operacional. Foca no controle f\u00edsico e no hist\u00f3rico de duplicatas do sistema."
+            },
+            {
+              text: "Dar uma voadora no batente da porta do quarto ao lado para \"sentir a resist\u00eancia da madeira\".",
+              effects: {"foco": -2, "execucao": 0, "visao": -2, "adaptabilidade": 0},
+              feedback: "Vandalismo. Destruiu o patrim\u00f4nio da casa e n\u00e3o descobriu nada sobre o crime."
+            }
           ]
         }
       ]
     },
     {
-      id: 'do', name: 'DO', subtitle: 'Execução dos Interrogatórios e Coleta', icon: '💻', color: '#FF7043', bgGradient: 'linear-gradient(135deg, #1a0a00 0%, #4a1500 50%, #bf360c 100%)', bgImage: 'assets/bg_det_do.png',
-      intro: 'Três suspeitos isolados: a Esposa (herdeira), o Sócio (falido) e o Sobrinho (endividado). É hora de executar as entrevistas e recolher os dados de campo.',
+      id: 'do',
+      name: "DO",
+      subtitle: "Executar",
+      icon: '🔨',
+      color: '#FF7043',
+      bgGradient: 'linear-gradient(135deg, #1a0a00 0%, #4a1500 50%, #bf360c 100%)',
+      bgImage: 'assets/bg_det_do.png',
+      intro: "Com a estrada bloqueada pela tempestade e sem sinal de telefone, voc\u00ea re\u00fane os tr\u00eas suspeitos na sala de estar: a Esposa, o S\u00f3cio e o Sobrinho. \u00c0s 22h10, sob luzes que oscilam, o clima \u00e9 tenso e todos trocam acusa\u00e7\u00f5es exaltadas.",
       scenarios: [
         {
-          text: 'Questão 2.1: Como executa a abordagem inicial com os suspeitos?', choices: [
-            { text: 'A) Entrevistar cada um separado, com questionário padrão.', effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Padronização. Facilita cruzar respostas idênticas em busca de falhas.' },
-            { text: 'B) Confronte todos juntos na sala com acusações diretas.', effects: { foco: -2, execucao: 2, visao: 0, adaptabilidade: 1 }, feedback: 'Pressão. Cria atrito imediato, mas eles podem alinhar versões.' },
-            { text: 'C) Começar pelo suspeito mais calmo para quebrar sua postura.', effects: { foco: 0, execucao: 0, visao: 1, adaptabilidade: 2 }, feedback: 'Psicológico. Desmonta o álibi mais bem preparado primeiro.' },
-            { text: 'D) Pedir para preencherem um caça-palavras de suspense.', effects: { foco: -3, execucao: -3, visao: 0, adaptabilidade: 0 }, feedback: 'Perda de tempo. Ninguém cooperou e o tempo passou.' }
+          text: "Como executar a abordagem inicial dos depoimentos na sala?",
+          choices: [
+            {
+              text: "Levar um de cada vez para a biblioteca fechada e aplicar o question\u00e1rio padr\u00e3o de checagem de \u00e1libis.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Inqu\u00e9rito Met\u00f3dico. Permite comparar as respostas com precis\u00e3o cir\u00fargica em busca de furos."
+            },
+            {
+              text: "Separar os tr\u00eas imediatamente em c\u00f4modos distintos para impedir a troca de informa\u00e7\u00f5es.",
+              effects: {"foco": 0, "execucao": 3, "visao": 1, "adaptabilidade": 0},
+              feedback: "Isolamento T\u00e1tico. Corta a comunica\u00e7\u00e3o entre os suspeitos e for\u00e7a relatos individuais sem alinhamento."
+            },
+            {
+              text: "Adaptar a ordem das perguntas conforme as rea\u00e7\u00f5es imediatas demonstradas pelos suspeitos durante o isolamento.",
+              effects: {"foco": 0, "execucao": 1, "visao": 0, "adaptabilidade": 3},
+              feedback: "Inqu\u00e9rito Din\u00e2mico. Ajusta o ritmo da entrevista conforme novas brechas aparecem."
+            },
+            {
+              text: "Distribuir ca\u00e7a-palavras de suspense para ver quem responde mais r\u00e1pido e entrega o nervosismo.",
+              effects: {"foco": -3, "execucao": -3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Perda de Tempo. Ningu\u00e9m cooperou e voc\u00ea perdeu a autoridade da investiga\u00e7\u00e3o."
+            }
           ]
         },
         {
-          text: 'Questão 2.2: O Sócio afirma que lia na biblioteca das 21h às 22h. Como executa a checagem?', choices: [
-            { text: 'A) Pedir detalhes do enredo e posição das luzes da sala.', effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 1 }, feedback: 'Teste de veracidade. Detalhes difíceis de inventar de improviso.' },
-            { text: 'B) Checar os registros do sistema inteligente de iluminação.', effects: { foco: 2, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Prova digital. Confirma o uso da sala através de dados imutáveis.' },
-            { text: 'C) Aceitar a resposta e passar para o próximo suspeito.', effects: { foco: 0, execucao: 2, visao: -2, adaptabilidade: 0 }, feedback: 'Falta de checagem. Economizou tempo, mas aceitou um álibi falso.' },
-            { text: 'D) Propor uma disputa de quem lê mais rápido.', effects: { foco: -2, execucao: 0, visao: -2, adaptabilidade: 0 }, feedback: 'Impertinente. O suspeito debochou e você perdeu autoridade.' }
-          ]
-        },
-        {
-          text: 'Questão 2.3: A Esposa chora copiosamente durante a conversa. Qual a sua execução?', choices: [
-            { text: 'A) Dar água, usar empatia e fazer perguntas abertas.', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 4 }, feedback: 'Rapport. Consegue informações valiosas de forma natural.' },
-            { text: 'B) Manter a postura rígida e exigir respostas diretas.', effects: { foco: 2, execucao: 0, visao: 0, adaptabilidade: -1 }, feedback: 'Foco técnico. Garante dados objetivos, mas fecha o diálogo espontâneo.' },
-            { text: 'C) Confrontar o horário do choro com a hora estimada do crime.', effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 }, feedback: 'Análise fria. Avalia se a emoção bate cronologicamente com os fatos.' },
-            { text: 'D) Chorar junto para demonstrar solidariedade.', effects: { foco: -3, execucao: 0, visao: 0, adaptabilidade: -3 }, feedback: 'Vexame. A equipe teve que tirar você da sala.' }
-          ]
-        },
-        {
-          text: 'Questão 2.4: Executando a varredura física no cofre, você acha um fio de fibra sintética. O que faz?', choices: [
-            { text: 'A) Guardar em envelope de papel e mandar para análise óptica.', effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Coleta técnica. Preserva a evidência sem alterar sua composição.' },
-            { text: 'B) Comparar na hora com o tecido dos casacos dos suspeitos.', effects: { foco: 0, execucao: 3, visao: 0, adaptabilidade: 1 }, feedback: 'Checagem de campo. Dá uma pista imediata sobre quem esteve ali.' },
-            { text: 'C) Usar uma fita adesiva comum para colar o fio num bloco de notas.', effects: { foco: -2, execucao: 1, visao: 0, adaptabilidade: 0 }, feedback: 'Contaminação. A cola da fita estragou o teste químico do laboratório.' },
-            { text: 'D) Assoprar a poeira do cofre para enxergar melhor o fundo.', effects: { foco: -3, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Destruição. O sopro voou com o fio e destruiu as impressões do painel.' }
+          text: "O S\u00f3cio diz que esteve na biblioteca e a Esposa alega que estava no quarto. Como validar esses depoimentos?",
+          choices: [
+            {
+              text: "Checar detalhes f\u00edsicos do ambiente da biblioteca com o S\u00f3cio e auditar a medica\u00e7\u00e3o descrita pela Esposa.",
+              effects: {"foco": 1, "execucao": 0, "visao": 3, "adaptabilidade": 0},
+              feedback: "Verifica\u00e7\u00e3o de Fatos. Confronta as declara\u00e7\u00f5es com elementos materiais comprov\u00e1veis."
+            },
+            {
+              text: "Confrontar os dois diretamente na sala com as inconsist\u00eancias temporais coletadas.",
+              effects: {"foco": 0, "execucao": 3, "visao": 0, "adaptabilidade": 1},
+              feedback: "Interrogat\u00f3rio Direto. Aplica press\u00e3o de campo para for\u00e7ar contradi\u00e7\u00f5es sob estresse."
+            },
+            {
+              text: "Cruzar os hor\u00e1rios das rotinas relatadas com a oscila\u00e7\u00e3o de energia do gerador registrada no painel.",
+              effects: {"foco": 0, "execucao": 0, "visao": 2, "adaptabilidade": 2},
+              feedback: "An\u00e1lise T\u00e9cnica. Utiliza marcos objetivos da infraestrutura da casa para balizar os \u00e1libis."
+            },
+            {
+              text: "Desafiar o S\u00f3cio para uma disputa de leitura r\u00e1pida e ignorar totalmente o depoimento da Esposa.",
+              effects: {"foco": -3, "execucao": -3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Vexame. A equipe precisou intervir para que voc\u00ea n\u00e3o perdesse o controle do caso."
+            }
           ]
         }
       ]
     },
     {
-      id: 'check', name: 'CHECK', subtitle: 'Análise dos Indicadores e Provas', icon: '🔍', color: '#AB47BC', bgGradient: 'linear-gradient(135deg, #1a0033 0%, #4a0072 50%, #7b1fa2 100%)', bgImage: 'assets/bg_det_check.png',
-      intro: 'Você reuniu amostras, horários e depoimentos. É hora de checar a consistência dos dados, validar as hipóteses e cruzar as informações no painel do caso.',
+      id: 'check',
+      name: "CHECK",
+      subtitle: "Checar / Analisar",
+      icon: '🔍',
+      color: '#AB47BC',
+      bgGradient: 'linear-gradient(135deg, #1a0033 0%, #4a0072 50%, #7b1fa2 100%)',
+      bgImage: 'assets/bg_det_check.png',
+      intro: "23h. Arthur acorda desorientado, o cofre digital n\u00e3o tem marcas de arrombamento (a senha de 6 d\u00edgitos foi inserida de primeira) e o laudo indica sedativo no u\u00edsque. As pe\u00e7as do quebra-cabe\u00e7a come\u00e7am a se encaixar no seu quadro de pistas.",
       scenarios: [
         {
-          text: 'Questão 3.1: Checando o cofre: o segredo correto foi digitado sem arrombamento. O que conclui?', choices: [
-            { text: 'A) O criminoso obteve a senha secreta com a vítima.', effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 }, feedback: 'Dedução lógica. Delimita o foco apenas a quem conhecia o código.' },
-            { text: 'B) O criminoso usou um estetoscópio para ouvir as engrenagens.', effects: { foco: 0, execucao: 0, visao: -1, adaptabilidade: 2 }, feedback: 'Hipótese de filme. Possível, mas muito improvável em cofres digitais.' },
-            { text: 'C) O cofre travou com defeito e abriu sozinho.', effects: { foco: -2, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Sem fundamento. Ignora o funcionamento básico do equipamento.' },
-            { text: 'D) Checar se há desgaste de poeira nos números usados.', effects: { foco: 0, execucao: 1, visao: 3, adaptabilidade: 0 }, feedback: 'Checagem física. Confirma visualmente a sequência exata no teclado.' }
+          text: "O teclado do cofre foi operado sem erros. O que isso indica na investiga\u00e7\u00e3o?",
+          choices: [
+            {
+              text: "O criminoso obteve o c\u00f3digo direto com a v\u00edtima ou acessou sua agenda pessoal de anota\u00e7\u00f5es.",
+              effects: {"foco": 1, "execucao": 0, "visao": 3, "adaptabilidade": 0},
+              feedback: "Dedu\u00e7\u00e3o L\u00f3gica. Afunila as suspeitas apenas para o c\u00edrculo \u00edntimo da v\u00edtima."
+            },
+            {
+              text: "Usar l\u00e2mpada ultravioleta no teclado para mapear a gordura dos dedos nos n\u00fameros mais pressionados.",
+              effects: {"foco": 0, "execucao": 1, "visao": 3, "adaptabilidade": 0},
+              feedback: "Per\u00edcia de Campo. Confirma visualmente os d\u00edgitos exatos da combina\u00e7\u00e3o usada no roubo."
+            },
+            {
+              text: "Modificar o foco da investiga\u00e7\u00e3o para identificar quem teve acesso aos cadernos e gavetas de Arthur.",
+              effects: {"foco": 1, "execucao": 0, "visao": 0, "adaptabilidade": 2},
+              feedback: "Reagrupamento Estrat\u00e9gico. Redireciona a varredura para os locais de guarda de informa\u00e7\u00f5es."
+            },
+            {
+              text: "Concluir que a tempestade provocou um curto-circuito e fez o cofre destravar sozinho.",
+              effects: {"foco": -2, "execucao": 0, "visao": -3, "adaptabilidade": 0},
+              feedback: "Sem Fundamento. Ignorou a engenharia do equipamento e a ci\u00eancia investigativa."
+            }
           ]
         },
         {
-          text: 'Questão 3.2: O laudo do sedativo indica ação em 15 minutos. A bebida foi servida às 21h00. O que checar?', choices: [
-            { text: 'A) Marcar a janela da incapacidade da vítima entre 21h15 e 21h45.', effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Linha do tempo. Define com precisão o momento do roubo.' },
-            { text: 'B) Vistoriar o lixo da cozinha em busca do frasco do remédio.', effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 1 }, feedback: 'Busca de descarte. Tenta achar a embalagem do veneno no local.' },
-            { text: 'C) Assumir que a vítima tomou o remédio voluntariamente.', effects: { foco: 0, execucao: 0, visao: -2, adaptabilidade: 1 }, feedback: 'Conclusão precipitada. Ignora o contexto de uma reunião importante.' },
-            { text: 'D) Deduzir que o sedativo era para acalmar o cão da casa.', effects: { foco: -3, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Fato isolado. Descartou o dado mais relevante da autópsia técnica.' }
-          ]
-        },
-        {
-          text: 'Questão 3.3: Ao cruzar os depoimentos, você nota uma lacuna de 20 minutos no relato do Sobrinho. O que faz?', choices: [
-            { text: 'A) Cruzar o horário dele com as câmeras do corredor interno.', effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 }, feedback: 'Auditoria. Usa fontes neutras para validar ou desmentir o relato.' },
-            { text: 'B) Chamar o Sobrinho imediatamente e exigir que explique o hiato.', effects: { foco: 0, execucao: 2, visao: -1, adaptabilidade: 0 }, feedback: 'Confronto direto. Dá urgência, mas alerta o suspeito antes da hora.' },
-            { text: 'C) Preencher a lacuna presumindo que ele foi ao banheiro.', effects: { foco: 0, execucao: 0, visao: -2, adaptabilidade: 1 }, feedback: 'Acomodação. Assume dados não checados dentro da investigação.' },
-            { text: 'D) Ignorar os 20 minutos por achar a margem pequena.', effects: { foco: -2, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Erro crasso. A lacuna era exatamente o tempo da execução do crime.' }
-          ]
-        },
-        {
-          text: 'Questão 3.4: Como checa se a tranca foi manipulada de fora por um fio de nylon?', choices: [
-            { text: 'A) Recriar a cena e fazer o teste prático de puxar a chave com a linha.', effects: { foco: 0, execucao: 0, visao: 1, adaptabilidade: 3 }, feedback: 'Reconstituição. Prova empiricamente se o método era viável.' },
-            { text: 'B) Procurar resíduos de nylon na fresta da porta com microscópio portátil.', effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 }, feedback: 'Verificação forense. Encontra vestígios do material usado no truque.' },
-            { text: 'C) Perguntar aos suspeitos se algum deles sabe dar nós em nylon.', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 2 }, feedback: 'Sondagem. Avalia o conhecimento prático dos envolvidos.' },
-            { text: 'D) Declarar que é impossível fechar portas trancadas por fora.', effects: { foco: -3, execucao: 0, visao: -3, adaptabilidade: 0 }, feedback: 'Desistência. Ignorou técnicas clássicas de invasão.' }
+          text: "O sedativo age em 15 minutos (servido \u00e0s 21h) e o Sobrinho possui um hiato de 20 minutos. Como cruzar esses dados?",
+          choices: [
+            {
+              text: "Delimitar a incapacidade da v\u00edtima entre 21h15 e 21h45 e auditar os 20 minutos do Sobrinho nas c\u00e2meras do corredor.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Cronograma Certo. Cruza a farmacologia do sedativo com imagens neutras de auditoria."
+            },
+            {
+              text: "Executar uma busca r\u00e1pida pelas lixeiras da casa para localizar o frasco ou ampola do sedativo.",
+              effects: {"foco": 0, "execucao": 3, "visao": 0, "adaptabilidade": 1},
+              feedback: "Varredura de Campo. Foca na localiza\u00e7\u00e3o f\u00edsica do recipiente descartado."
+            },
+            {
+              text: "Ajustar a linha do tempo do caso inserindo o intervalo do sedativo como janela principal do crime.",
+              effects: {"foco": 0, "execucao": 0, "visao": 2, "adaptabilidade": 2},
+              feedback: "Recalibragem de Matriz. Reorganiza os dados operacionais conforme a prova farmacol\u00f3gica."
+            },
+            {
+              text: "Apagar a lacuna do relat\u00f3rio por achar o intervalo de 20 minutos pequeno demais para um crime.",
+              effects: {"foco": -2, "execucao": 0, "visao": -3, "adaptabilidade": 0},
+              feedback: "Erro Crasso. A lacuna ignorada era exatamente o tempo de execu\u00e7\u00e3o do roubo."
+            }
           ]
         }
       ]
     },
     {
-      id: 'act', name: 'ACT', subtitle: 'Padronização da Resolução e Ação', icon: '⚙️', color: '#EF5350', bgGradient: 'linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #c62828 100%)', bgImage: 'assets/bg_det_act.png',
-      intro: 'O culpado foi identificado: o Sócio. Ele usou o sedativo, obteve a senha na agenda e trancou a porta por fora com uma linha. Agora é hora de agir, fechar o caso e padronizar o relatório para a polícia.',
+      id: 'act',
+      name: "ACT",
+      subtitle: "Padronizar e Agir",
+      icon: '🔄',
+      color: '#EF5350',
+      bgGradient: 'linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #c62828 100%)',
+      bgImage: 'assets/bg_det_act.png',
+      intro: "02h. As viaturas chegam. A investiga\u00e7\u00e3o aponta para o S\u00f3cio: sedou a v\u00edtima, pegou a senha na agenda, roubou o contrato e usou uma linha sint\u00e9tica para trancar a porta por fora. Ao ver a pol\u00edcia, ele esconde a m\u00e3o no bolso.",
       scenarios: [
         {
-          text: 'Questão 4.1: Como faz a acusação final para garantir a prisão sem brechas?', choices: [
-            { text: 'A) Apresentar a narrativa encadeada: veneno, senha, fio e o contrato achado.', effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Caso blindado. Apresenta uma cadeia lógica indestrutível para a justiça.' },
-            { text: 'B) Revelar a prova do contrato no casaco e dar voz de prisão imediata.', effects: { foco: -1, execucao: 3, visao: 0, adaptabilidade: 0 }, feedback: 'Ação direta. Resolve no ato, mas sem explicar todo o método na hora.' },
-            { text: 'C) Usar a motivação da falência para induzir o Sócio a confessar.', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 4 }, feedback: 'Pressão psíquica. Garante a confissão espontânea do acusado.' },
-            { text: 'D) Chutar quem é o culpado e mudar de ideia no meio da fala.', effects: { foco: -3, execucao: 0, visao: 0, adaptabilidade: -3 }, feedback: 'Descredibilidade. Perdeu o controle e gerou vergonha.' }
+          text: "O S\u00f3cio leva a m\u00e3o ao bolso ao ver as viaturas. Como realizar a acusa\u00e7\u00e3o e conten\u00e7\u00e3o?",
+          choices: [
+            {
+              text: "Trancar as sa\u00eddas preventivamente e apresentar a narrativa encadeada: veneno, senha, fibra e contrato.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Caso Blindado. Apresenta uma cadeia l\u00f3gica indestrut\u00edvel enquanto impede qualquer tentativa de fuga."
+            },
+            {
+              text: "Avan\u00e7ar no S\u00f3cio, tomar o contrato do bolso dele e aplicar imobiliza\u00e7\u00e3o f\u00edsica no ch\u00e3o.",
+              effects: {"foco": 0, "execucao": 3, "visao": 0, "adaptabilidade": 1},
+              feedback: "A\u00e7\u00e3o Direta. Resolve a tentativa de oculta\u00e7\u00e3o no ato com prontid\u00e3o f\u00edsica."
+            },
+            {
+              text: "Bloquear a rota de sa\u00edda do S\u00f3cio usando a posi\u00e7\u00e3o dos policiais rec\u00e9m-chegados.",
+              effects: {"foco": 0, "execucao": 2, "visao": 0, "adaptabilidade": 2},
+              feedback: "Cerco T\u00e1tico. Adapta o posicionamento da equipe para anular qualquer brecha de fuga."
+            },
+            {
+              text: "Acusar o Sobrinho por engano, perceber o erro no meio da fala e tentar mudar de ideia para o S\u00f3cio.",
+              effects: {"foco": -3, "execucao": -3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Descredibilidade. Perdeu o controle da sala e virou motivo de piada."
+            }
           ]
         },
         {
-          text: 'Questão 4.2: O Sócio tenta correr em direção à saída! Qual sua ação de contenção?', choices: [
-            { text: 'A) Trancar as saídas preventivamente antes de dar a acusação.', effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Ação preventiva. O criminoso tenta fugir, mas dá de cara com a porta trancada.' },
-            { text: 'B) Plaquear o suspeito no chão e aplicar imobilização.', effects: { foco: 0, execucao: 3, visao: 0, adaptabilidade: 1 }, feedback: 'Resposta física. Resolve o imprevisto com prontidão e força.' },
-            { text: 'C) Pedir ao Sobrinho que segure o Sócio no corredor.', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Delegação. Usa recursos presentes no ambiente para conter o dano.' },
-            { text: 'D) Gritar por socorro na janela no meio da tempestade.', effects: { foco: -3, execucao: -3, visao: 0, adaptabilidade: 0 }, feedback: 'Inútil. O som do vento abafou sua voz e o suspeito fugiu.' }
-          ]
-        },
-        {
-          text: 'Questão 4.3: Como finaliza o relatório de entrega para os delegados que chegaram?', choices: [
-            { text: 'A) Entregar o dossiê formal padronizado com laudos, fotos e assinaturas.', effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 }, feedback: 'Documentação. Permite uma transição perfeita para o processo penal.' },
-            { text: 'B) Passar um resumo falado de 2 minutos e liberar a equipe.', effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 0 }, feedback: 'Apressado. Entrega o criminoso, mas deixa a burocracia incompleta.' },
-            { text: 'C) Orientar a família sobre como prestar depoimento oficial na delegacia.', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Acolhimento. Presta suporte humano pós-crise aos afetados.' },
-            { text: 'D) Jogar os papéis e sacos de provas no lixo da sala.', effects: { foco: -4, execucao: 0, visao: -4, adaptabilidade: 0 }, feedback: 'Anulação. Sem as provas catalogadas, o Juiz soltará o réu amanhã.' }
-          ]
-        },
-        {
-          text: 'Questão 4.4: O contrato roubado foi recuperado, mas está rasgado. Como age?', choices: [
-            { text: 'A) Mapear e restaurar os pedaços numa placa acrílica selada.', effects: { foco: 3, execucao: 0, visao: 0, adaptabilidade: 1 }, feedback: 'Preservação de item. Garante a leitura e o valor legal do documento.' },
-            { text: 'B) Tirar foto rápida dos pedaços no chão e anexar ao chat da equipe.', effects: { foco: -1, execucao: 2, visao: 0, adaptabilidade: 0 }, feedback: 'Registro veloz. Guarda a imagem, mas não preserva o objeto original.' },
-            { text: 'C) Pedir que a vítima assine uma segunda via quando acordar.', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 2 }, feedback: 'Contorno. Solução administrativa enquanto o original é processado.' },
-            { text: 'D) Colar com fita durex comum por cima do texto principal.', effects: { foco: -2, execucao: 0, visao: -2, adaptabilidade: 0 }, feedback: 'Dano. A cola da fita manchou a assinatura e estragou a perícia.' }
+          text: "Com o culpado contido, como finalizar a entrega oficial do caso para os delegados?",
+          choices: [
+            {
+              text: "Entregar o dossi\u00ea formal padronizado com laudos, fotos etiquetadas, linha do tempo e assinaturas.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Transi\u00e7\u00e3o Executiva. Garante que o processo penal siga sem brechas para os advogados do r\u00e9u."
+            },
+            {
+              text: "Lacrar e etiquetar todas as evid\u00eancias recolhidas na presen\u00e7a das autoridades respons\u00e1veis.",
+              effects: {"foco": 1, "execucao": 3, "visao": 0, "adaptabilidade": 0},
+              feedback: "Fechamento Operacional. Conclui a cust\u00f3dia das provas com rigor de campo."
+            },
+            {
+              text: "Adequar o relat\u00f3rio final aos formatos exigidos pelo protocolo da delegacia de plant\u00e3o.",
+              effects: {"foco": 1, "execucao": 0, "visao": 0, "adaptabilidade": 2},
+              feedback: "Ajuste de Fluxo. Garante que a documenta\u00e7\u00e3o atenda aos requisitos da recep\u00e7\u00e3o oficial."
+            },
+            {
+              text: "Jogar os sacos de provas e cadernos de anota\u00e7\u00f5es no lixo da sala e dizer que o trabalho terminou.",
+              effects: {"foco": -4, "execucao": 0, "visao": -4, "adaptabilidade": 0},
+              feedback: "Anula\u00e7\u00e3o. Sem as provas catalogadas, o Juiz soltar\u00e1 o r\u00e9u na audi\u00eancia de cust\u00f3dia."
+            }
           ]
         }
       ]
     },
     {
-      id: 'kaizen', name: 'KAIZEN', subtitle: 'Melhoria Contínua dos Protocolos', icon: '🌟', color: '#66BB6A', bgGradient: 'linear-gradient(135deg, #002200 0%, #1b5e20 50%, #388e3c 100%)', bgImage: 'assets/bg_det_kaizen.png',
-      intro: 'O caso foi encerrado com sucesso. Como líder da agência, seu papel agora é analisar os erros e acertos dessa operação para aperfeiçoar o método de investigação de toda a equipe para os próximos casos.',
+      id: 'kaizen',
+      name: "KAIZEN",
+      subtitle: "Melhorar Continuamente",
+      icon: '🌿',
+      color: '#66BB6A',
+      bgGradient: 'linear-gradient(135deg, #002200 0%, #1b5e20 50%, #388e3c 100%)',
+      bgImage: 'assets/bg_det_kaizen.png',
+      intro: "Manh\u00e3 seguinte na sede. O suspeito est\u00e1 preso, mas a revis\u00e3o do plant\u00e3o revela gargalos operacionais: falta de frascos de amostragem no in\u00edcio e um erro de digita\u00e7\u00e3o ao catalogar provas.",
       scenarios: [
         {
-          text: 'Questão 5.1: Como usa a falha na demora da coleta do vinho para melhorar o processo da agência?', choices: [
-            { text: 'A) Atualizar o manual com checklist obrigatório de coleta nos primeiros 5 minutos.', effects: { foco: 1, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Melhoria de padrão. Transforma o erro em um novo procedimento padronizado.' },
-            { text: 'B) Desenvolver uma maleta kit-expresso de coleta rápida para crises.', effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 3 }, feedback: 'Inovação de ferramentas. Cria um recurso que elimina o tempo de espera.' },
-            { text: 'C) Dar uma bronca na equipe por não ter visto a taça antes.', effects: { foco: -1, execucao: 0, visao: 0, adaptabilidade: -2 }, feedback: 'Cultura do esculacho. Gera medo e não corrige a falha no processo.' },
-            { text: 'D) Mapear as causas do atraso e redesenhar o fluxo da caixa de ferramentas.', effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 1 }, feedback: 'Análise de causa-raiz. Corrige o sistema em vez de culpar as pessoas.' }
+          text: "Faltaram frascos de coleta r\u00e1pida na Fase 1. Como tratar essa falha no Kaizen?",
+          choices: [
+            {
+              text: "Desenvolver um \"Kit Expresso de Coleta R\u00e1pida\" com recipientes pr\u00e9-etiquetados para crises.",
+              effects: {"foco": 0, "execucao": 1, "visao": 0, "adaptabilidade": 3},
+              feedback: "Inova\u00e7\u00e3o de Ferramenta. Transforma um gargalo em um recurso que elimina o tempo de espera."
+            },
+            {
+              text: "Mapear as causas do atraso (Os 5 Porqu\u00eas) e redesenhar o fluxo de reposi\u00e7\u00e3o da caixa de ferramentas.",
+              effects: {"foco": 0, "execucao": 0, "visao": 3, "adaptabilidade": 1},
+              feedback: "An\u00e1lise de Causa-Raiz. Corrige o sistema log\u00edstico em vez de buscar culpados pontuais."
+            },
+            {
+              text: "Atualizar o manual da ag\u00eancia tornando obrigat\u00f3rio um checklist de insumos antes de sair da sede.",
+              effects: {"foco": 3, "execucao": 0, "visao": 1, "adaptabilidade": 0},
+              feedback: "Padroniza\u00e7\u00e3o. Garante que nenhum agente cometa o mesmo erro por esquecimento."
+            },
+            {
+              text: "Dar uma bronca generalizada na equipe por n\u00e3o ter checado a maleta antes de entrar na viatura.",
+              effects: {"foco": -1, "execucao": -2, "visao": 0, "adaptabilidade": 0},
+              feedback: "A\u00e7\u00e3o Ineficiente. Gera atrito na equipe e n\u00e3o corrige a falha no processo de abastecimento."
+            }
           ]
         },
         {
-          text: 'Questão 5.2: Um agente novato cometeu um erro de digitação na etiqueta de uma prova. Como aplica o Kaizen?', choices: [
-            { text: 'A) Rever o formulário e criar etiquetas com código de barras antierro (Poka-Yoke).', effects: { foco: 1, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Processo antierro. Garante que o sistema impeça a falha humana.' },
-            { text: 'B) Fazer uma sessão de treino prático com o novato mostrando a forma correta.', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Desenvolvimento. Ensina com empatia focando na evolução contínua.' },
-            { text: 'C) Suspender o novato das investigações por duas semanas.', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: -5 }, feedback: 'Punitivo. Oculta o problema em vez de ensinar o processo certo.' },
-            { text: 'D) Assumir a digitação de todas as etiquetas você mesmo a partir de hoje.', effects: { foco: -1, execucao: -2, visao: 0, adaptabilidade: 0 }, feedback: 'Centralização. Cria um gargalo na sua liderança e não desenvolve o time.' }
-          ]
-        },
-        {
-          text: 'Questão 5.3: A equipe de Perícia sugere uma nova ferramenta com Inteligência Artificial para ler pegadas. Como implementa?', choices: [
-            { text: 'A) Testar a IA em paralelo com o método tradicional por 30 dias antes de aprovar.', effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 1 }, feedback: 'Transição segura. Valida a eficácia do novo método sem arriscar dados.' },
-            { text: 'B) Adotar a ferramenta na hora e descartar o método antigo de gesso.', effects: { foco: 0, execucao: 2, visao: -2, adaptabilidade: 0 }, feedback: 'Precipitação. Troca o método consolidado sem homologar o novo.' },
-            { text: 'C) Rejeitar a tecnologia porque "no meu tempo se investigava no olho".', effects: { foco: 0, execucao: 0, visao: -2, adaptabilidade: -3 }, feedback: 'Resistência. Trava a evolução tecnológica da agência.' },
-            { text: 'D) Montar um grupo de estudo com os agentes para avaliar os pontos fortes da ferramenta.', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Engajamento. Envolve o time na escolha das próprias ferramentas de trabalho.' }
-          ]
-        },
-        {
-          text: 'Questão 5.4: Na reunião de encerramento do caso com a equipe, qual sua postura Kaizen?', choices: [
-            { text: 'A) "Identificamos 3 falhas de fluxo hoje. Como vamos ajustar o padrão para sermos melhores amanhã?"', effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 3 }, feedback: 'Foco em evolução. Engaja todos na busca constante pela excelência.' },
-            { text: 'B) "O caso foi resolvido no tempo limite. Não precisamos mexer em nada no manual."', effects: { foco: 1, execucao: 0, visao: 0, adaptabilidade: -2 }, feedback: 'Acomodação. Perde a chance de aperfeiçoar os pontos fracos da operação.' },
-            { text: 'C) "Parabéns pelo resultado! Vamos focar só em comemorar e esquecer os erros."', effects: { foco: 0, execucao: 2, visao: -1, adaptabilidade: 0 }, feedback: 'Celebrativo. Bom para o clima, mas não gera aprendizado estruturado.' },
-            { text: 'D) "Eu resolvi o caso praticamente sozinho, vocês só atrapalharam."', effects: { foco: -3, execucao: 0, visao: 0, adaptabilidade: -4 }, feedback: 'Ego. Destruiu o moral do time e dividiu a agência.' }
+          text: "Um novato errou a digita\u00e7\u00e3o de uma etiqueta de prova. Como evitar que isso se repita?",
+          choices: [
+            {
+              text: "Criar etiquetas com c\u00f3digo de barras e preenchimento digital antierro (Poka-Yoke).",
+              effects: {"foco": 1, "execucao": 0, "visao": 0, "adaptabilidade": 3},
+              feedback: "Processo Antierro. O sistema impede que a falha humana aconte\u00e7a antes mesmo da digita\u00e7\u00e3o."
+            },
+            {
+              text: "Implementar uma etapa de dupla checagem obrigat\u00f3ria antes do envio dos dados ao sistema.",
+              effects: {"foco": 3, "execucao": 1, "visao": 0, "adaptabilidade": 0},
+              feedback: "Controle de Qualidade. Estabelece barreira operacional de valida\u00e7\u00e3o das informa\u00e7\u00f5es."
+            },
+            {
+              text: "Reestruturar o fluxo de entrada de dados para ser executado via aplicativo m\u00f3vel direto de campo.",
+              effects: {"foco": 0, "execucao": 2, "visao": 0, "adaptabilidade": 2},
+              feedback: "Moderniza\u00e7\u00e3o de Processo. Elimina etapas intermedi\u00e1rias e reduz o risco de inconsist\u00eancias."
+            },
+            {
+              text: "Assumir a digita\u00e7\u00e3o e colagem de absolutamente todas as etiquetas voc\u00ea mesmo a partir de hoje.",
+              effects: {"foco": -1, "execucao": -2, "visao": 0, "adaptabilidade": 0},
+              feedback: "Centraliza\u00e7\u00e3o. Virou um gargalo na lideran\u00e7a e impediu o crescimento da equipe."
+            }
           ]
         }
       ]
@@ -786,7 +1097,6 @@ const CAREER_PHASES = {
   ]
 };
 
-// Perfis profissionais baseados nos dois maiores atributos
 const PROFILES = {
   'foco-execucao': {
     name: 'Executor Estratégico',
