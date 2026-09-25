@@ -34,7 +34,738 @@ const TRAITS = [
 ];
 
 const CAREER_PHASES = {
-  dev: [
+    dev: [
+
+    // ========== FASE 1: PLAN ==========
+
+    {
+
+      id: 'plan',
+
+      name: 'PLANNING',
+
+      subtitle: 'Sprint Planning',
+
+      icon: '­ƒôï',
+
+      color: '#4FC3F7',
+
+      bgGradient: 'linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #283593 100%)',
+
+      bgImage: 'assets/bg_plan.png',
+
+      intro: 'Segunda-feira, 9h da manh├ú. Voc├¬ acabou de entrar na call de Sprint Planning. Sofia, a coordenadora, est├í compartilhando a tela com as tarefas do projeto.',
+
+      scenarios: [
+
+        {
+
+          text: 'Sofia: "Temos que entregar a nova p├ígina do site em duas semanas. A diretoria quer pra logo. Algu├®m acha que vai dar problema?"',
+
+          choices: [
+
+            {
+
+              text: '"Sofia, sem regras claras de como fazer, a gente pode travar no meio. Precisamos alinhar isso antes."',
+
+              effects: { foco: 2, execucao: 0, visao: 2, adaptabilidade: 0 },
+
+              feedback: 'Sofia anota a observa├º├úo: "Bem pontuado. Vou cobrar o time de neg├│cios para conseguir essa documenta├º├úo at├® amanh├ú."'
+
+            },
+
+            {
+
+              text: '"Sem problemas, Sofia! A gente come├ºa a fazer o visual hoje e vai descobrindo o resto no caminho."',
+
+              effects: { foco: 0, execucao: 2, visao: -1, adaptabilidade: 2 },
+
+              feedback: 'Marcos, o l├¡der do grupo, franze a testa. "Cuidado com essa pressa, mas gosto do seu otimismo."'
+
+            },
+
+            {
+
+              text: 'Ficar em sil├¬ncio e esperar os devs mais experientes (Marcos ou Beto) responderem primeiro.',
+
+              effects: { foco: 1, execucao: -1, visao: 0, adaptabilidade: 0 },
+
+              feedback: 'Voc├¬ prefere n├úo se arriscar. Marcos acaba assumindo a responsabilidade de revisar o escopo.'
+
+            },
+
+            {
+
+              text: '"Eu topo pegar essa task! Se a gente usar aquela biblioteca nova que eu estava estudando, d├í pra acelerar bastante!"',
+
+              effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 1 },
+
+              feedback: 'Beto sorri: "Isso a├¡! Sangue no olho!". Mas Sofia parece um pouco c├®tica sobre usar ferramentas n├úo testadas.'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'A reuni├úo termina e voc├¬ recebe o primeiro ticket: Configurar o ambiente local e subir o banco de dados. Voc├¬ abre o README do projeto e...',
+
+          choices: [
+
+            {
+
+              text: '"Nossa, isso t├í bem desatualizado. Vou seguir passo a passo e ir atualizando o README para os pr├│ximos devs."',
+
+              effects: { foco: 2, execucao: 1, visao: 2, adaptabilidade: 0 },
+
+              feedback: 'Demorou mais que o esperado, mas agora o documento est├í impec├ível. Marcos agradeceu o esfor├ºo no chat.'
+
+            },
+
+            {
+
+              text: 'Ignorar o README antigo, copiar os arquivos de configura├º├úo do Beto que j├í est├í com tudo rodando e partir pro c├│digo.',
+
+              effects: { foco: -1, execucao: 3, visao: 0, adaptabilidade: 1 },
+
+              feedback: 'Seu ambiente subiu em 10 minutos! Voc├¬ j├í est├í com a IDE aberta.'
+
+            },
+
+            {
+
+              text: '"Vou dar uma olhada na arquitetura do projeto no diagrama primeiro pra entender como esse banco se conecta com a API principal."',
+
+              effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 },
+
+              feedback: 'Voc├¬ gastou um tempo estudando, mas agora entende o fluxo de dados perfeitamente.'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'Beto (S├¬nior): "Ei, vi que voc├¬ pegou a task da tela inicial de pagamento. Quer que eu fa├ºa um pair programming com voc├¬ pra dar um g├ís inicial?"',
+
+          choices: [
+
+            {
+
+              text: '"Claro, Beto! Vai ser ├│timo pra eu pegar os padr├Áes de c├│digo da equipe mais r├ípido."',
+
+              effects: { foco: 1, execucao: 1, visao: 0, adaptabilidade: 2 },
+
+              feedback: 'Voc├¬s codam juntos por 2 horas. Voc├¬ aprendeu atalhos novos que n├úo conhecia!'
+
+            },
+
+            {
+
+              text: '"Valeu Beto, mas prefiro tentar quebrar a cabe├ºa sozinho um pouco primeiro. Se eu travar muito, te chamo!"',
+
+              effects: { foco: 2, execucao: 0, visao: 1, adaptabilidade: 0 },
+
+              feedback: 'Beto faz um joinha. Voc├¬ passa a tarde imerso no c├│digo, desenvolvendo sua autonomia.'
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    },
+
+
+
+    // ========== FASE 2: DO ==========
+
+    {
+
+      id: 'do',
+
+      name: 'CODING',
+
+      subtitle: 'M├úo no C├│digo',
+
+      icon: '­ƒÆ╗',
+
+      color: '#FF7043',
+
+      bgGradient: 'linear-gradient(135deg, #1a0a00 0%, #4a1500 50%, #bf360c 100%)',
+
+      bgImage: 'assets/bg_do.png',
+
+      intro: 'A Sprint est├í na metade. O fone de ouvido est├í tocando sua playlist de foco, o caf├® est├í quente e o terminal est├í aberto.',
+
+      scenarios: [
+
+        {
+
+          text: 'Voc├¬ est├í implementando a integra├º├úo da API, mas percebe que a biblioteca recomendada pela Sofia n├úo suporta um dos m├®todos necess├írios.',
+
+          choices: [
+
+            {
+
+              text: 'Escrever uma fun├º├úo customizada do zero para contornar o problema e manter a biblioteca.',
+
+              effects: { foco: 2, execucao: 2, visao: 0, adaptabilidade: 0 },
+
+              feedback: 'Voc├¬ suou a camisa, mas o c├│digo funcionou. Uma solu├º├úo criativa e t├®cnica.'
+
+            },
+
+            {
+
+              text: '"Sofia, a biblioteca X n├úo vai rolar. Encontrei a Y que faz tudo nativamente, mas vamos precisar mudar a documenta├º├úo. Posso seguir?"',
+
+              effects: { foco: 0, execucao: 0, visao: 2, adaptabilidade: 2 },
+
+              feedback: 'Sofia demora a responder, mas concorda: "Se ├® mais seguro, mande bala. Mas me avise se o prazo mudar."'
+
+            },
+
+            {
+
+              text: 'Deixar esse m├®todo espec├¡fico comentado com um TODO e avan├ºar com o resto da tela para entregar algo visual logo.',
+
+              effects: { foco: -1, execucao: 3, visao: 0, adaptabilidade: 1 },
+
+              feedback: 'A tela ficou pronta r├ípido e o time de design adorou ver! Mas a d├¡vida t├®cnica ficou pra depois...'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'ALERTA NO SLACK! O servidor de homologa├º├úo caiu de novo. Marcos manda no canal geral: "Algu├®m rodou algum script pesado no banco?"',
+
+          choices: [
+
+            {
+
+              text: '"Fui eu, Marcos. Fui testar uma query de hist├│rico e travou tudo. Como posso matar o processo daqui?"',
+
+              effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 3 },
+
+              feedback: 'Marcos responde r├ípido: "Tranquilo, acontece. Roda o comando X no terminal." O servidor volta em segundos.'
+
+            },
+
+            {
+
+              text: 'Ignorar o chat. Voc├¬ n├úo tem certeza se foi voc├¬, e prefere continuar focado na sua feature enquanto algu├®m resolve.',
+
+              effects: { foco: 2, execucao: 1, visao: -1, adaptabilidade: 0 },
+
+              feedback: 'O servidor ficou fora por 20 minutos at├® Beto encontrar o problema. Ningu├®m brigou, mas o time perdeu tempo.'
+
+            },
+
+            {
+
+              text: 'Rapidamente abrir os logs da AWS para investigar se a sua API causou o problema antes de falar qualquer coisa.',
+
+              effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 0 },
+
+              feedback: 'Voc├¬ acha o erro no log: n├úo foi a sua query! Voc├¬ manda o print no grupo ajudando a resolver o mist├®rio.'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'Faltam dois dias pra fechar a Sprint. Beto te manda mensagem: "Cara, t├┤ afogado aqui. Consegue pegar uma task de valida├º├úo de formul├írio que era minha?"',
+
+          choices: [
+
+            {
+
+              text: '"Manda pra c├í, Beto! Fico at├® um pouco mais tarde hoje, mas a gente garante a Sprint."',
+
+              effects: { foco: 0, execucao: 3, visao: 0, adaptabilidade: 1 },
+
+              feedback: 'Beto fica extremamente agradecido. Voc├¬ ganha muitos pontos com a equipe, mas o cansa├ºo bate forte ├á noite.'
+
+            },
+
+            {
+
+              text: '"Beto, se eu pegar isso agora, vou arriscar n├úo entregar a integra├º├úo da API com qualidade. Acho melhor n├úo."',
+
+              effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: -1 },
+
+              feedback: 'Beto entende perfeitamente. Sua API ficou com c├│digo impec├ível, mesmo que a task dele atrase.'
+
+            },
+
+            {
+
+              text: '"Posso pegar, mas me ensina aquele truque de RegEx que voc├¬ usa, assim eu fa├ºo bem mais r├ípido."',
+
+              effects: { foco: 0, execucao: 1, visao: 1, adaptabilidade: 2 },
+
+              feedback: 'Voc├¬s negociaram bem. Ele te explicou o Regex, voc├¬ terminou sua parte e ainda salvou a dele!'
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    },
+
+
+
+    // ========== FASE 3: CHECK ==========
+
+    {
+
+      id: 'check',
+
+      name: 'CODE REVIEW',
+
+      subtitle: 'Revis├úo e Testes',
+
+      icon: '­ƒöì',
+
+      color: '#AB47BC',
+
+      bgGradient: 'linear-gradient(135deg, #1a0033 0%, #4a0072 50%, #7b1fa2 100%)',
+
+      bgImage: 'assets/bg_check.png',
+
+      intro: 'Sexta-feira. Voc├¬ abre um Pull Request (PR) do seu c├│digo para a branch principal. ├ë hora de ser avaliado pelos seus pares.',
+
+      scenarios: [
+
+        {
+
+          text: 'Marcos revisa seu PR e deixa 12 coment├írios. A maioria sobre pequenos padr├Áes de indenta├º├úo e nomes de vari├íveis, mas um deles diz: "Essa l├│gica no ForLoop vai dar gargalo em produ├º├úo."',
+
+          choices: [
+
+            {
+
+              text: '"Entendido, Marcos. Vou refatorar para usar Map e Filter, e j├í corrijo o estilo do c├│digo tamb├®m."',
+
+              effects: { foco: 1, execucao: 1, visao: 1, adaptabilidade: 2 },
+
+              feedback: 'Voc├¬ aceitou o feedback sem ego. O c├│digo novo ficou muito mais perform├ítico!'
+
+            },
+
+            {
+
+              text: '"Marcos, a l├│gica do loop eu vi no StackOverflow e parecia bem otimizada pra esse caso. Quer que eu rode um teste de carga pra provar?"',
+
+              effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: -1 },
+
+              feedback: 'Marcos acha justo. O teste de carga mostra que ele tinha raz├úo no final, mas a discuss├úo t├®cnica foi excelente.'
+
+            },
+
+            {
+
+              text: 'Corrigir tudo em sil├¬ncio o mais r├ípido poss├¡vel e pedir novo review para n├úo atrasar a entrega.',
+
+              effects: { foco: 2, execucao: 2, visao: 0, adaptabilidade: 0 },
+
+              feedback: 'Tudo corrigido a jato! O PR foi aprovado, embora voc├¬ nem tenha absorvido muito o porqu├¬ de cada mudan├ºa.'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'Na etapa de testes da interface, o QA (Qualidade) reporta um bug: "No iPhone 11, o bot├úo de pagar fica pela metade escondido atr├ís do teclado virtual."',
+
+          choices: [
+
+            {
+
+              text: '"Putz, iPhone antigo sempre quebra o CSS. Vou tentar colocar uma media-query r├ípida pra esse tamanho de tela e seguir."',
+
+              effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 1 },
+
+              feedback: 'A corre├º├úo r├ípida funcionou, mas o c├│digo CSS ficou um pouquinho mais sujo. O QA aprovou.'
+
+            },
+
+            {
+
+              text: '"Isso deve ser um problema estrutural do nosso layout. Vou dar um passo pra tr├ís e reescrever usando Flexbox fluido pra funcionar em tudo."',
+
+              effects: { foco: 2, execucao: 0, visao: 2, adaptabilidade: 0 },
+
+              feedback: 'Deu trabalho extra, mas resolveu n├úo s├│ esse problema, como previu falhas futuras em outras telas pequenas.'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'No fim do dia, Sofia manda os resultados dos primeiros testes com usu├írios beta: "Galera, eles acharam o fluxo de pagamento incr├¡vel, mas disseram que a tela de sucesso t├í muito sem gra├ºa."',
+
+          choices: [
+
+            {
+
+              text: '"Que bom que a l├│gica funcionou! Depois o time de UX que lute com a tela de sucesso, a gente garantiu a seguran├ºa."',
+
+              effects: { foco: 2, execucao: 0, visao: -1, adaptabilidade: 1 },
+
+              feedback: 'Voc├¬ manteve o foco nas suas prioridades de Dev back/front l├│gico.'
+
+            },
+
+            {
+
+              text: '"Sofia, se eu adicionar uma biblioteca leve de anima├º├úo de confetes, a gente entrega algo visualmente legal em meia horinha. Topa?"',
+
+              effects: { foco: 0, execucao: 1, visao: 1, adaptabilidade: 2 },
+
+              feedback: 'Sofia adorou a ideia! O confete foi a cereja do bolo que fez os clientes sorrirem.'
+
+            },
+
+            {
+
+              text: '"Vou olhar as m├®tricas do Heatmap pra ver quanto tempo eles ficam nessa tela de sucesso. Talvez a gente possa colocar um banner promocional nela."',
+
+              effects: { foco: 0, execucao: 0, visao: 3, adaptabilidade: 0 },
+
+              feedback: 'Sua vis├úo de neg├│cios impressionou a Sofia! O banner aumentou o engajamento do app.'
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    },
+
+
+
+    // ========== FASE 4: ACT ==========
+
+    {
+
+      id: 'act',
+
+      name: 'REFACTORING',
+
+      subtitle: 'Mudan├ºa de Rota',
+
+      icon: 'ÔÜÖ´©Å',
+
+      color: '#EF5350',
+
+      bgGradient: 'linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #c62828 100%)',
+
+      bgImage: 'assets/bg_act.png',
+
+      intro: 'Segunda semana. A diretoria fez uma reuni├úo de emerg├¬ncia com um investidor. A Sofia vem at├® a equipe com uma fei├º├úo tensa.',
+
+      scenarios: [
+
+        {
+
+          text: 'Sofia (PM): "M├í not├¡cia, time. O parceiro de pagamentos mudou as regras de compliance ontem ├á noite. Precisamos adicionar autentica├º├úo em dois fatores na mesma tela que voc├¬s j├í terminaram."',
+
+          choices: [
+
+            {
+
+              text: 'Suspirar forte. "Ok, Sofia. Joga o ticket pra mim, eu varo a noite refatorando essa integra├º├úo."',
+
+              effects: { foco: 0, execucao: 3, visao: 0, adaptabilidade: 1 },
+
+              feedback: 'Sua dedica├º├úo ├® inquestion├ível. Voc├¬ entrega no prazo, a custo de algumas olheiras.'
+
+            },
+
+            {
+
+              text: '"Espera, a gente pode usar o token do login inicial em vez de criar um 2FA novo s├│ pro pagamento? Evitaria quebrar toda a UI."',
+
+              effects: { foco: 1, execucao: 0, visao: 3, adaptabilidade: 0 },
+
+              feedback: 'Sofia arregala os olhos: "Isso ├® genial e salva semanas de trabalho!". Vis├úo sist├¬mica pura!'
+
+            },
+
+            {
+
+              text: '"Beleza! A gente cria um modal no meio da tela, assim n├úo precisa mexer no layout que j├í t├í pronto."',
+
+              effects: { foco: 0, execucao: 1, visao: 0, adaptabilidade: 3 },
+
+              feedback: 'Solu├º├úo ├ígil, barata e funcional. O time elogia sua flexibilidade para contornar a crise.'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'Beto entra na call revoltado: "Isso ├® um absurdo! A gente passa 10 dias fazendo um c├│digo lindo pra ter que remendar tudo na ├║ltima hora! Eu n├úo aguento isso!"',
+
+          choices: [
+
+            {
+
+              text: '"Concordo plenamente, Beto! ├ë muita falta de respeito com o time t├®cnico n├úo alinharem isso antes."',
+
+              effects: { foco: 0, execucao: -1, visao: 0, adaptabilidade: -1 },
+
+              feedback: 'O clima fica t├│xico. A equipe passa mais tempo reclamando do que resolvendo o problema.'
+
+            },
+
+            {
+
+              text: '"Beto, respira. A gente salva a branch antiga no reposit├│rio. Pelo menos a gente aprendeu muito montando a arquitetura base."',
+
+              effects: { foco: 1, execucao: 0, visao: 1, adaptabilidade: 2 },
+
+              feedback: 'Voc├¬ conseguiu acalmar os ├ónimos. Ver o lado bom trouxe a motiva├º├úo de volta pra sala.'
+
+            },
+
+            {
+
+              text: '"Bora focar no que a gente tem controle, Beto. Se a gente chorar agora o prazo n├úo muda. Quer ajuda com o refactory da sua parte?"',
+
+              effects: { foco: 2, execucao: 1, visao: 0, adaptabilidade: 1 },
+
+              feedback: 'Pragmatismo que chama! Beto resmunga mas engole o choro e voc├¬s voltam a codar forte.'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'O prazo est├í se esgotando e o Marcos vira pra voc├¬: "A gente n├úo vai conseguir entregar tudo. Ou a gente sobe sem os testes unit├írios da nova feature, ou atrasa o deploy pro cliente em dois dias."',
+
+          choices: [
+
+            {
+
+              text: '"Eu voto em atrasar. Entregar c├│digo sem teste de pagamento ├® pedir pra ter preju├¡zo financeiro na madrugda."',
+
+              effects: { foco: 3, execucao: 0, visao: 1, adaptabilidade: 0 },
+
+              feedback: 'Marcos assente: "Exato. Seguran├ºa em primeiro lugar. Vou alinhar o atraso com a diretoria."'
+
+            },
+
+            {
+
+              text: '"Sobe sem os testes automatizados. Eu testo na m├úo tudo hoje ├á noite, a gente garante a entrega e eu fa├ºo os testes na pr├│xima Sprint."',
+
+              effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 2 },
+
+              feedback: 'Arriscado, mas voc├¬ assumiu a responsabilidade e entregou o valor para o cliente no prazo combinado!'
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    },
+
+
+
+    // ========== FASE 5: KAIZEN ==========
+
+    {
+
+      id: 'kaizen',
+
+      name: 'RETROSPECTIVA',
+
+      subtitle: 'Evolu├º├úo Cont├¡nua',
+
+      icon: '­ƒîƒ',
+
+      color: '#66BB6A',
+
+      bgGradient: 'linear-gradient(135deg, #002200 0%, #1b5e20 50%, #388e3c 100%)',
+
+      bgImage: 'assets/bg_kaizen.png',
+
+      intro: 'A Sprint terminou. O m├│dulo subiu e as m├®tricas est├úo ├│timas. A equipe se re├║ne numa videochamada descontra├¡da para a Reuni├úo de Avalia├º├úo (Retro).',
+
+      scenarios: [
+
+        {
+
+          text: 'Sofia abre o board da Retro: "Galera, mandaram muito bem! Mas vamos ser sinceros: o que deu errado nessa Sprint que precisamos melhorar?"',
+
+          choices: [
+
+            {
+
+              text: '"A falha de comunica├º├úo com o parceiro l├í do in├¡cio quase nos custou o projeto. Precisamos criar um processo de an├ílise de documenta├º├úo antes de codar."',
+
+              effects: { foco: 2, execucao: 0, visao: 3, adaptabilidade: 0 },
+
+              feedback: 'Excelente an├ílise de causa-raiz. O time decide implementar uma etapa de "Tech Design" antes das pr├│ximas Sprints.'
+
+            },
+
+            {
+
+              text: '"A gente ficou muito dependente do Marcos pra aprovar PRs no Revis├úo de C├│digo. Precisamos diluir isso entre os outros devs."',
+
+              effects: { foco: 1, execucao: 0, visao: 2, adaptabilidade: 1 },
+
+              feedback: 'Marcos concorda aliviado. Isso vai desafogar ele e dar mais autonomia para voc├¬ e o Beto.'
+
+            },
+
+            {
+
+              text: '"Acho que a gente codou muito e comemorou pouco. A gente se estressou atoa com a mudan├ºa no final, pod├¡amos ter levado mais leve."',
+
+              effects: { foco: 0, execucao: 0, visao: 1, adaptabilidade: 3 },
+
+              feedback: 'Risadas no chat. O time percebe que o clima estava muito pesado e decide marcar uma partida de jogo online toda sexta.'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'Marcos te manda uma mensagem no privado: "Seu desempenho foi ├│timo para as primeiras semanas. Quer focar em evoluir no qu├¬ para a pr├│xima Sprint?"',
+
+          choices: [
+
+            {
+
+              text: '"Quero mergulhar mais fundo em arquitetura de software e design patterns para evitar aquele gargalo no banco de dados."',
+
+              effects: { foco: 2, execucao: 0, visao: 2, adaptabilidade: 0 },
+
+              feedback: 'Marcos sorri. "├ôtimo caminho. Vou te mandar uns artigos sobre Solid e Clean Architecture."'
+
+            },
+
+            {
+
+              text: '"Quero pegar tickets mais dif├¡ceis e assumir mais entregas de c├│digo, quero produzir mais!"',
+
+              effects: { foco: 0, execucao: 3, visao: 0, adaptabilidade: 1 },
+
+              feedback: 'A fome de c├│digo ├® real! Voc├¬ est├í se tornando uma m├íquina de execu├º├úo.'
+
+            },
+
+            {
+
+              text: '"Quero aprender a lidar melhor com o time de Produto e Neg├│cios. Entender como a Sofia pensa as m├®tricas."',
+
+              effects: { foco: 0, execucao: 0, visao: 2, adaptabilidade: 2 },
+
+              feedback: 'Um caminho brilhante! Desenvolvedores que entendem de neg├│cios viram profissionais muito valiosos.'
+
+            }
+
+          ]
+
+        },
+
+        {
+
+          text: 'A call est├í acabando. Sofia diz: "Pra fechar, uma palavra que defina essa Sprint pra voc├¬s?"',
+
+          choices: [
+
+            {
+
+              text: '"Resili├¬ncia."',
+
+              effects: { foco: 0, execucao: 0, visao: 0, adaptabilidade: 2 },
+
+              feedback: 'As mudan├ºas de ├║ltima hora n├úo te abalaram!'
+
+            },
+
+            {
+
+              text: '"Foco."',
+
+              effects: { foco: 2, execucao: 0, visao: 0, adaptabilidade: 0 },
+
+              feedback: 'Organiza├º├úo foi o que manteve o barco flutuando.'
+
+            },
+
+            {
+
+              text: '"Entrega."',
+
+              effects: { foco: 0, execucao: 2, visao: 0, adaptabilidade: 0 },
+
+              feedback: 'M├úo na massa que trouxe resultados concretos!'
+
+            },
+
+            {
+
+              text: '"Aprendizado."',
+
+              effects: { foco: 0, execucao: 0, visao: 2, adaptabilidade: 0 },
+
+              feedback: 'Cada bug foi uma li├º├úo para o futuro.'
+
+            }
+
+          ]
+
+        }
+
+      ]
+
+    }
+
+  ],
+  gamedesigner: [
     {
       id: 'plan',
       name: "PLAN",
@@ -1203,6 +1934,13 @@ const CAREERS = [
     name: "Detetive",
     icon: "🕵️",
     desc: "Resolva mistérios e crimes complexos.",
+    available: true
+  },
+  {
+    id: "gamedesigner",
+    name: "Game Designer",
+    icon: "🎮",
+    desc: "Crie jogos, gerencie projetos e otimize processos.",
     available: true
   }
 ];
