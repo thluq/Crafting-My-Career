@@ -773,7 +773,7 @@ const CAREER_PHASES = {
       icon: '📋',
       color: '#4FC3F7',
       bgGradient: 'linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #283593 100%)',
-      bgImage: 'assets/bg_plan.png',
+      bgImage: 'assets/bg_gamedesigner_plan.png',
       intro: "Sua equipe est\u00e1 reunida no est\u00fadio. O or\u00e7amento inicial \u00e9 limitado, e o tempo de desenvolvimento definir\u00e1 se a empresa sobrevive ao primeiro ano de opera\u00e7\u00e3o.",
       scenarios: [
         {
@@ -860,7 +860,7 @@ const CAREER_PHASES = {
       icon: '🔨',
       color: '#FF7043',
       bgGradient: 'linear-gradient(135deg, #1a0a00 0%, #4a1500 50%, #bf360c 100%)',
-      bgImage: 'assets/bg_do.png',
+      bgImage: 'assets/bg_gamedesigner_do.png',
       intro: "A produ\u00e7\u00e3o est\u00e1 a todo vapor. Motores gr\u00e1ficos configurados, reposit\u00f3rios abertos e os primeiros bugs de compila\u00e7\u00e3o surgindo na tela.",
       scenarios: [
         {
@@ -947,7 +947,7 @@ const CAREER_PHASES = {
       icon: '🔍',
       color: '#AB47BC',
       bgGradient: 'linear-gradient(135deg, #1a0033 0%, #4a0072 50%, #7b1fa2 100%)',
-      bgImage: 'assets/bg_check.png',
+      bgImage: 'assets/bg_gamedesigner_check.png',
       intro: "O bot\u00e3o de publica\u00e7\u00e3o foi pressionado. O tr\u00e1fego de usu\u00e1rios come\u00e7a a subir, os servidores s\u00e3o acionados e a telemetria dispara.",
       scenarios: [
         {
@@ -1034,7 +1034,7 @@ const CAREER_PHASES = {
       icon: '🔄',
       color: '#EF5350',
       bgGradient: 'linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #c62828 100%)',
-      bgImage: 'assets/bg_act.png',
+      bgImage: 'assets/bg_gamedesigner_act.png',
       intro: "O jogo est\u00e1 publicado e est\u00e1vel. Agora o foco \u00e9 a sustenta\u00e7\u00e3o do produto: corre\u00e7\u00f5es cr\u00edticas, ciclos de atualiza\u00e7\u00e3o e reinvestimento dos lucros.",
       scenarios: [
         {
@@ -1121,7 +1121,7 @@ const CAREER_PHASES = {
       icon: '🌿',
       color: '#66BB6A',
       bgGradient: 'linear-gradient(135deg, #002200 0%, #1b5e20 50%, #388e3c 100%)',
-      bgImage: 'assets/bg_kaizen.png',
+      bgImage: 'assets/bg_gamedesigner_kaizen.png',
       intro: "O projeto estabilizou e deu lucro. \u00c9 o momento de reunir a lideran\u00e7a t\u00e9cnica, revisar o post-mortem do desenvolvimento e aperfei\u00e7oar os processos para o pr\u00f3ximo ciclo.",
       scenarios: [
         {
